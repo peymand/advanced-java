@@ -11,9 +11,12 @@ public class Main {
                 new ClassPathXmlApplicationContext("applicationContext.xml");
         System.out.println(System.currentTimeMillis());
 
+
+        Book book = context.getBean("novelBook",Book.class);
         Student student1 = context.getBean("student",Student.class);
         Student student2 = context.getBean("student",Student.class);
         boolean result = (student1 == student2);
         System.out.println(result);
+
     }
 }

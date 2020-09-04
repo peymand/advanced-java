@@ -1,10 +1,14 @@
 package com.kaheshan.dummy;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Student {
 
     private int age;
     private String name;
     private String family;
+    private Book book;
 
   public Student(){}
 
@@ -35,5 +39,13 @@ public class Student {
 
     public void setFamily(String family) {
         this.family = family;
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
     }
 }

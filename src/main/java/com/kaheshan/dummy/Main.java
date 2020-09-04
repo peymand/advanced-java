@@ -12,7 +12,7 @@ public class Main {
         System.out.println(System.currentTimeMillis());
 
 
-        Book book = context.getBean("novelBook",Book.class);
+        Book book  = context.getBean("novelBook",Book.class);
         Student student1 = context.getBean("student",Student.class);
         Student student2 = context.getBean("student",Student.class);
         boolean result = (student1 == student2);

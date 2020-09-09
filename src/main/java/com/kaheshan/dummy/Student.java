@@ -1,11 +1,13 @@
 package com.kaheshan.dummy;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Student {
 
     private int age;
+    @Value("${name}")
     private String name;
     private String family;
     private Book book;

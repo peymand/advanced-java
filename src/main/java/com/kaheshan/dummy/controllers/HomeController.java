@@ -1,9 +1,9 @@
 package com.kaheshan.dummy.controllers;
 
+import com.kaheshan.dummy.models.Person;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/")
@@ -21,10 +21,9 @@ public class HomeController {
 	}
 
 	@PostMapping(value = "/show-name")
-	public String showName(String name ){
+	public String showName(Person p, ModelMap modelMap){
 
-
-		System.out.println(name);
+		modelMap.addAttribute("person",p);
 
 		return "show-name";
 	}

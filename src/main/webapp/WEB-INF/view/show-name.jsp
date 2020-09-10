@@ -1,1 +1,3 @@
-${param.name}
+${person.name}
+${person.family}
+${person.age}

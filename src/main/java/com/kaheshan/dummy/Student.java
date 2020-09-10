@@ -1,20 +1,31 @@
 package com.kaheshan.dummy;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Component
+
 public class Student {
 
+
     private int age;
-    @Value("${name}")
+
     private String name;
     private String family;
+
+
+    //    @Qualifier("novelBook")
     private Book book;
 
-  public Student(){}
 
-    public void doSomething(){
+
+    public Student(@Qualifier("novelBook") Book b,@Value("10") int age) {
+        this.book = b;
+        this.age = age;
+    }
+
+    public void doSomething() {
         System.out.println("in do something method...");
     }
 

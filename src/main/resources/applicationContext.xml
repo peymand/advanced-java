@@ -9,6 +9,8 @@
 
   <context:component-scan base-package="com.kaheshan.dummy"/>
 
+  <bean id="text" class="java.lang.String"/>
+
 </beans>
 
 

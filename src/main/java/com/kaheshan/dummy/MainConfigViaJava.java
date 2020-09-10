@@ -11,9 +11,11 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class MainConfigViaJava {
 
     public static void main(String[] args) {
-        ApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
+        ApplicationContext context =
+                new AnnotationConfigApplicationContext(Config.class);
 
-        Book book  = context.getBean("novelBook",Book.class);
+
+        String s =  context.getBean("text",String.class);
         Student student1 = context.getBean("student",Student.class);
         Student student2 = context.getBean("student",Student.class);
         boolean result = (student1 == student2);

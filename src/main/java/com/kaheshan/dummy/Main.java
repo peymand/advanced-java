@@ -1,5 +1,6 @@
 package com.kaheshan.dummy;
 
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
@@ -7,7 +8,7 @@ public class Main {
         System.out.println("Hello Spring");
         System.out.println("hello");
         System.out.println(System.currentTimeMillis());
-        ClassPathXmlApplicationContext context =
+        ApplicationContext context =
                 new ClassPathXmlApplicationContext("applicationContext.xml");
         System.out.println(System.currentTimeMillis());
 

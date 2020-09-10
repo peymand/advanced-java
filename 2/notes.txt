@@ -1,0 +1,50 @@
+Spring in a Nutshell
+	very popular framework for building Java applications
+	initially a simpler and lightweight alternative to JEE
+	spring 5 works with java8
+	spring.io official website
+	lightwight dev with java opjo
+	DI
+	AOP
+	min boilerplate code
+Core Container
+Infrastructure
+Data Access Layer
+Web Layer
+Test Layer
+Spring Projects (security, data, cloud, ...)
+Inversion of Control
+	outsource to an object factory
+Spring Container (Primary functions)
+	create and manage objects (IoC)
+	Inject Object dependencies (DI)
+Config Spring Container (AKA Application Context)
+	XML (applicationContext.xml)
+	Java Annotations
+	Java Source code
+Spring Bean scope and Lifecycle
+	Singleton
+	Prototype
+	Reguest
+	Session
+	Global
+Bean lifecycle methods
+	custom init method
+	custom destroy method
+Spring Config with Java Annotations	
+	just component scan in xml file 
+	Component annotation on classes
+	injecting values from prop file
+Spring web mvc
+	xml and java config
+annotations:
+	RequestMapping
+	RequestBody
+	PathVariable
+	RequestParam
+	ResponseBody
+	ExceptionHandler
+	ResposeStatus
+	Controller
+	RestController
+	ModelAttribute (data binding in Spring-MVC) (https://www.baeldung.com/spring-mvc-and-the-modelattribute-annotation)

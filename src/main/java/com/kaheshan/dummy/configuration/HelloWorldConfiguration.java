@@ -31,4 +31,6 @@ public class HelloWorldConfiguration implements WebMvcConfigurer{
 		return viewResolver;
 	}
 
+
+
 }

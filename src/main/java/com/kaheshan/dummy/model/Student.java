@@ -1,16 +1,26 @@
 package com.kaheshan.dummy.model;
 
-import org.springframework.stereotype.Component;
 
+import javax.persistence.*;
 import java.util.LinkedHashMap;
-@Component
+@Entity
+@Table(name = "student_tlb")
 public class Student {
 
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	private int id;
+
+	@Column(name = "first_name")
 	private String firstName;
+
+	@Column(name = "last_name")
 	private String lastName;
-	
+	@Column(name = "country")
 	private String country;
-	
+	@Transient
 	private LinkedHashMap<String, String> countryOptions;
 	
 	public Student() {
@@ -52,5 +62,13 @@ public class Student {
 
 	public LinkedHashMap<String, String> getCountryOptions() {
 		return countryOptions;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }

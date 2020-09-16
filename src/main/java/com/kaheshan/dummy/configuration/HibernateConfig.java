@@ -1,6 +1,8 @@
 package com.kaheshan.dummy.configuration;
 
 
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -36,12 +38,28 @@ public class HibernateConfig {
 
     @Bean
     public DataSource dataSource() {
+
+
+        HikariConfig config = new HikariConfig();
+        HikariDataSource ds;
+
+        config.setJdbcUrl(environment.getRequiredProperty("jdbc.url"));
+        config.setDriverClassName(environment.getRequiredProperty("jdbc.driverClassName"));
+        config.setUsername(environment.getRequiredProperty("jdbc.username"));
+        config.setPassword(environment.getRequiredProperty("jdbc.password"));
+        config.addDataSourceProperty("cachePrepStmts", "true");
+        config.addDataSourceProperty("prepStmtCacheSize", "250");
+        config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
+        config.addDataSourceProperty("maximumPoolSize", "20");
+        ds = new HikariDataSource(config);
+
+
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(environment.getRequiredProperty("jdbc.driverClassName"));
         dataSource.setUrl(environment.getRequiredProperty("jdbc.url"));
         dataSource.setUsername(environment.getRequiredProperty("jdbc.username"));
         dataSource.setPassword(environment.getRequiredProperty("jdbc.password"));
-        return dataSource;
+        return ds;
     }
 
     @Bean

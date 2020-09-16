@@ -4,6 +4,12 @@ import com.kaheshan.dummy.model.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import java.util.List;
 
 public class AddCoursesForMaryDemo {
 
@@ -21,7 +27,16 @@ public class AddCoursesForMaryDemo {
 		
 		// create session
 		Session session = factory.getCurrentSession();
-		
+		session.beginTransaction();
+		CriteriaBuilder cb = session.getCriteriaBuilder();
+		CriteriaQuery<Student> cr = cb.createQuery(Student.class);
+		Root<Student> root = cr.from(Student.class);
+		cr.select(root);
+
+		Query<Student> query = session.createQuery(cr);
+		List<Student> results = query.getResultList();
+
+
 		try {			
 			
 			// start a transaction

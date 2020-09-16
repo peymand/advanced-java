@@ -4,8 +4,11 @@ package com.kaheshan.dummy;
 import com.kaheshan.dummy.config.HibernateConfig;
 import com.kaheshan.dummy.model.Person;
 import com.kaheshan.dummy.service.PersonService;
+import org.hibernate.Session;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -17,6 +20,8 @@ public class MainApp {
    public static void main(String[] args) throws SQLException {
       AnnotationConfigApplicationContext context =
             new AnnotationConfigApplicationContext(HibernateConfig.class);
+
+
 
       PersonService personService = context.getBean(PersonService.class);
 

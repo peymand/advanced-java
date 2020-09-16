@@ -18,6 +18,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
+@ComponentScan("com.kaheshan.dummy")
 @PropertySource("classpath:database.properties")
 public class HibernateConfig {
 

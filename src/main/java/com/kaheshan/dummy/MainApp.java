@@ -21,8 +21,6 @@ public class MainApp {
       AnnotationConfigApplicationContext context =
             new AnnotationConfigApplicationContext(HibernateConfig.class);
 
-
-
       PersonService personService = context.getBean(PersonService.class);
 
       // Add Persons

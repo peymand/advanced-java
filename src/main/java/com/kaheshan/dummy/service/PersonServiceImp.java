@@ -26,6 +26,12 @@ public class PersonServiceImp implements PersonService {
       userDao.add(person);
    }
 
+   @Transactional
+   @Override
+   public void delete(int id) {
+      userDao.delete(id);
+   }
+
    @Transactional(readOnly = true)
    @Override
    public List<Person> listPersons() {

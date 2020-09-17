@@ -34,7 +34,7 @@ public class PersonDaoImp implements PersonDao {
 
    @Override
    public void delete(int id) {
-
+      em.remove(new Person(Long.valueOf(id)));
    }
 
    @Override

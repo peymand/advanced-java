@@ -29,6 +29,8 @@ public class Person {
     @Column(name = "EMAIL")
     private String email;
 
+    public Person(Long id){this.id = id;}
+
     public Person(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;

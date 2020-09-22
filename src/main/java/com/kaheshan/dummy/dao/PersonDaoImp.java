@@ -27,6 +27,9 @@ public class PersonDaoImp implements PersonDao {
    private EntityManager em;
 
 
+   @Autowired
+   SessionFactory sessionFactory;
+
    @Override
    public void save(Person person) {
 
@@ -51,6 +54,9 @@ public class PersonDaoImp implements PersonDao {
 
    @Override
    public List<Person> listPersons() {
+
+      List<Person> people = sessionFactory.getCurrentSession().createQuery("from Person p").list();
+
       Query nativeQuery = em.createQuery("SELECT s from Person s");
       List<Person> result = nativeQuery.getResultList();
       return result;

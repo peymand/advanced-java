@@ -51,7 +51,7 @@ public class PersonDaoImp implements PersonDao {
 
    @Override
    public List<Person> listPersons() {
-      Query nativeQuery = em.createNativeQuery("SELECT * from Persons");
+      Query nativeQuery = em.createQuery("SELECT s from Person s");
       List<Person> result = nativeQuery.getResultList();
       return result;
 //      CriteriaQuery<Person> criteriaQuery = em.getCriteriaBuilder().createQuery(Person.class);

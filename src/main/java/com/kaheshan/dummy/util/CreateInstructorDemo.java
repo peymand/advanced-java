@@ -1,9 +1,7 @@
 package com.kaheshan.dummy.util;
 
 
-import com.kaheshan.dummy.model.Course;
-import com.kaheshan.dummy.model.Instructor;
-import com.kaheshan.dummy.model.InstructorDetail;
+import com.kaheshan.dummy.model.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -12,12 +10,13 @@ public class CreateInstructorDemo {
 	public static void main(String[] args) {
 
 		// create session factory
-		SessionFactory factory = new Configuration()
-								.configure("hibernate.cfg.xml")
-								.addAnnotatedClass(Instructor.class)
-								.addAnnotatedClass(InstructorDetail.class)
-								.addAnnotatedClass(Course.class)
-								.buildSessionFactory();
+		SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
+				.addAnnotatedClass(Instructor.class)
+				.addAnnotatedClass(InstructorDetail.class)
+				.addAnnotatedClass(Course.class)
+				.addAnnotatedClass(Student.class)
+				.addAnnotatedClass(Review.class)
+				.buildSessionFactory();
 		
 		// create session
 		Session session = factory.getCurrentSession();

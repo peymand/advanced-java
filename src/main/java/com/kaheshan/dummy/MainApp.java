@@ -21,16 +21,16 @@ public class MainApp {
       AnnotationConfigApplicationContext context =
             new AnnotationConfigApplicationContext(HibernateConfig.class);
 
-
-
       PersonService personService = context.getBean(PersonService.class);
 
       // Add Persons
-      personService.add(new Person("Sunil", "Bora", "suni.bora@example.com"));
-      personService.add(new Person("David", "Miller", "david.miller@example.com"));
-      personService.add(new Person("Sameer", "Singh", "sameer.singh@example.com"));
-      personService.add(new Person("Paul", "Smith", "paul.smith@example.com"));
+//      personService.add(new Person("Sunil", "Bora", "suni.bora@example.com"));
+//      personService.add(new Person("David", "Miller", "david.miller@example.com"));
+//      personService.add(new Person("Sameer", "Singh", "sameer.singh@example.com"));
+//      personService.add(new Person("Paul", "Smith", "paul.smith@example.com"));
 
+
+      personService.delete(1);
       // Get Persons
       List<Person> persons = personService.listPersons();
       for (Person person : persons) {

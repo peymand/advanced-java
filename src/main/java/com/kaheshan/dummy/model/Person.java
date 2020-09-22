@@ -1,19 +1,24 @@
 package com.kaheshan.dummy.model;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.context.annotation.Lazy;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "PERSONS")
-@Getter @Setter @NoArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
 public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
 
     @Column(name = "FIRST_NAME")
     private String firstName;
@@ -23,6 +28,8 @@ public class Person {
 
     @Column(name = "EMAIL")
     private String email;
+
+    public Person(Long id){this.id = id;}
 
     public Person(String firstName, String lastName, String email) {
         this.firstName = firstName;

@@ -6,6 +6,9 @@ import java.util.List;
 
 
 public interface PersonDao {
+   void save(Person person);
+   void delete(int id);
    void add(Person person);
+   Person get(int id);
    List<Person> listPersons();
 }

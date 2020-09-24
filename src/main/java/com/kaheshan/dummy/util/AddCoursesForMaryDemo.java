@@ -11,6 +11,10 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
+
+// https://www.boraji.com/hibernate-5-criteria-query-example
+// https://www.baeldung.com/hibernate-criteria-queries
+
 public class AddCoursesForMaryDemo {
 
 	public static void main(String[] args) {

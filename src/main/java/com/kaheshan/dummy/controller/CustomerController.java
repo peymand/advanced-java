@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -36,6 +37,10 @@ public class CustomerController {
 		Customer theCustomer = new Customer();
 		
 		theModel.addAttribute("customer", theCustomer);
+		HashMap<String, String> types = new HashMap<>();
+		types.put("1","Iran");
+		types.put("2","Other");
+		theModel.addAttribute("customerType",types );
 		
 		return "customer-form";
 	}

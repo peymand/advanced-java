@@ -50,6 +50,18 @@
 					</tr>
 
 					<tr>
+						<td><label>Type:</label></td>
+						<td><form:select path="type">
+
+							<form:options items="${types}" />
+
+						</form:select>
+
+							<br><br></td>
+					</tr>
+
+
+					<tr>
 						<td><label></label></td>
 						<td><input type="submit" value="Save" class="save" /></td>
 					</tr>

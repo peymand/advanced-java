@@ -11,7 +11,7 @@ import java.util.LinkedHashMap;
 @Table(name = "student_tlb")
 @Getter
 @Setter
-@NoArgsConstructor
+
 public class Student {
 
 
@@ -29,5 +29,8 @@ public class Student {
 	private String country;
 	@Transient
 	private LinkedHashMap<String, String> countryOptions;
+
+
+
 
 }

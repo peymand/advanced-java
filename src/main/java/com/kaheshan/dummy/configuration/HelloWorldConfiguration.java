@@ -32,8 +32,10 @@ public class HelloWorldConfiguration implements WebMvcConfigurer{
 		return viewResolver;
 	}
 
+	@Override
 	public void addResourceHandlers(final ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+
 	}
 
 

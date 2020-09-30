@@ -1,11 +1,9 @@
 package com.kaheshan.dummy.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name="customer")
@@ -24,6 +22,11 @@ public class Customer {
 	
 	@Column(name="email")
 	private String email;
+
+//	@Version
+//	@Getter
+//	@Setter
+//	private Integer version;
 	
 	public Customer() {
 		

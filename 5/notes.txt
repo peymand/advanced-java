@@ -1,0 +1,2 @@
+Hibernate: save, persist, update, merge, saveOrUpdate
+https://www.baeldung.com/hibernate-save-persist-update-merge-saveorupdate

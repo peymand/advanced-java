@@ -1,2 +1,8 @@
 Hibernate: save, persist, update, merge, saveOrUpdate
 https://www.baeldung.com/hibernate-save-persist-update-merge-saveorupdate
+spring aop
+
+log4j architecture
+    core objects
+        logger
+    support objects

@@ -53,7 +53,7 @@
 						<td><label>Type:</label></td>
 						<td><form:select path="type">
 
-							<form:options items="${types}" />
+							<form:options items="${customerType}" />
 
 						</form:select>
 

@@ -4,6 +4,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.context.annotation.Lazy;
 
 import javax.persistence.*;
@@ -13,6 +14,8 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor
+@Cacheable
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class Person {
 
     @Id

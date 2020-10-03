@@ -38,4 +38,10 @@ public class PersonServiceImp implements PersonService {
       return userDao.listPersons();
    }
 
+   @Override
+   @Transactional(readOnly = true)
+   public Person getPerson(Long i) {
+      return userDao.get(i);
+   }
+
 }

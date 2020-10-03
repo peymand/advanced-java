@@ -123,6 +123,10 @@ public class HibernateConfig {
         properties.put("hibernate.format_sql", environment.getRequiredProperty("hibernate.format_sql"));
         properties.put("hibernate.hbm2ddl.auto", environment.getRequiredProperty("hibernate.hbm2ddl.auto"));
         properties.put("hibernate.use_sql_comments","true");
+        properties.put("hibernate.cache.use_second_level_cache","true");
+        properties.put("hibernate.cache.region.factory_class","org.hibernate.cache.ehcache.EhCacheRegionFactory");
+
+
         return properties;
     }
 }

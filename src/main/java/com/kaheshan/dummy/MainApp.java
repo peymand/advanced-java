@@ -4,6 +4,7 @@ package com.kaheshan.dummy;
 import com.kaheshan.dummy.config.HibernateConfig;
 import com.kaheshan.dummy.model.Person;
 import com.kaheshan.dummy.service.PersonService;
+import net.sf.ehcache.CacheManager;
 import org.hibernate.Session;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -21,10 +22,25 @@ public class MainApp {
       AnnotationConfigApplicationContext context =
             new AnnotationConfigApplicationContext(HibernateConfig.class);
 
-      PersonService personService = context.getBean(PersonService.class);
 
-      // Add Persons
+
+
+
+
+
+      PersonService personService = context.getBean(PersonService.class);
+//      Person p1 = personService.getPerson(1L);
+//      int size = CacheManager.ALL_CACHE_MANAGERS.get(0)
+//              .getCache("com.kaheshan.dummy.model.Person").getSize();
+//      System.out.println((size ==1) ? "true" : "false");
+
+              // Add Persons
       personService.add(new Person("Sunil", "Bora", "suni.bora@example.com"));
+
+
+
+
+
       personService.add(new Person("David", "Miller", "david.miller@example.com"));
       personService.add(new Person("Sameer", "Singh", "sameer.singh@example.com"));
       personService.add(new Person("Paul", "Smith", "paul.smith@example.com"));

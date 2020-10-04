@@ -36,8 +36,8 @@ public class PersonDaoImp implements PersonDao {
    }
 
    @Override
-   public void delete(int id) {
-      em.remove(new Person(Long.valueOf(id)));
+   public void delete(Person p) {
+      em.remove(p);
    }
 
    @Override

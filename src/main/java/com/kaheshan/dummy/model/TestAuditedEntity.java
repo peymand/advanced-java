@@ -20,13 +20,27 @@ import java.util.Date;
 public class TestAuditedEntity {
 
 
-    //...
+    //https://www.baeldung.com/jpa-entity-lifecycle-events
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Basic()
     @Column(name = "operation")
     private String operation;
 
     @Column(name = "timestamp")
     private long timestamp;
+
+
+//    @Column(name = "created_date", nullable = false, updatable = false)
+//    @CreatedDate
+//    private long createdDate;
+//
+//    @Column(name = "modified_date")
+//    @LastModifiedDate
+//    private long modifiedDate;
 
     //...
 

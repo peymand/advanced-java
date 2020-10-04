@@ -1,4 +1,4 @@
-package com.kaheshan.dummy.model;
+package com.kaheshan.dummy.model.audit.springdatajpa;
 
 
 import lombok.Getter;
@@ -11,13 +11,13 @@ import javax.persistence.*;
 
 @Audited
 @Entity
-@Table(name = "PERSONS")
+@Table(name = "PERSON_AUDIT")
 @Getter
 @Setter
 @NoArgsConstructor
 @Cacheable
 @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class Person {
+public class PersonAudit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,9 +36,9 @@ public class Person {
     @Column(name = "EMAIL")
     private String email;
 
-    public Person(Long id){this.id = id;}
+    public PersonAudit(Long id){this.id = id;}
 
-    public Person(String firstName, String lastName, String email) {
+    public PersonAudit(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

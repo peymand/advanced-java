@@ -30,8 +30,7 @@ public class MainApp {
 
       PersonService personService = context.getBean(PersonService.class);
       Person p1 = personService.getPerson(1L);
-      p1.setFirstName("soosan");
-      personService.update(p1);
+      personService.delete(p1);
 
 
       //      int size = CacheManager.ALL_CACHE_MANAGERS.get(0)
@@ -52,14 +51,14 @@ public class MainApp {
 
 //      personService.delete(1);
       // Get Persons
-      List<Person> persons = personService.listPersons();
-      for (Person person : persons) {
-         System.out.println("Id = "+person.getId());
-         System.out.println("First Name = "+person.getFirstName());
-         System.out.println("Last Name = "+person.getLastName());
-         System.out.println("Email = "+person.getEmail());
-         System.out.println();
-      }
+//      List<Person> persons = personService.listPersons();
+//      for (Person person : persons) {
+//         System.out.println("Id = "+person.getId());
+//         System.out.println("First Name = "+person.getFirstName());
+//         System.out.println("Last Name = "+person.getLastName());
+//         System.out.println("Email = "+person.getEmail());
+//         System.out.println();
+//      }
 
       context.close();
    }

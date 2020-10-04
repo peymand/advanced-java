@@ -28,8 +28,8 @@ public class PersonServiceImp implements PersonService {
 
    @Transactional
    @Override
-   public void delete(int id) {
-      userDao.delete(id);
+   public void delete(Person p) {
+      userDao.delete(p);
    }
 
    @Transactional(readOnly = true)

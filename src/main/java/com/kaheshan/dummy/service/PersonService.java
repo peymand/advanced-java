@@ -11,4 +11,6 @@ public interface PersonService {
     List<Person> listPersons();
 
     Person getPerson(Long i);
+
+    void update(Person p1);
 }

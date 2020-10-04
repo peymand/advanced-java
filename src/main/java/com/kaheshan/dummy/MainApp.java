@@ -29,22 +29,26 @@ public class MainApp {
 
 
       PersonService personService = context.getBean(PersonService.class);
-//      Person p1 = personService.getPerson(1L);
-//      int size = CacheManager.ALL_CACHE_MANAGERS.get(0)
+      Person p1 = personService.getPerson(1L);
+      p1.setFirstName("soosan");
+      personService.update(p1);
+
+
+      //      int size = CacheManager.ALL_CACHE_MANAGERS.get(0)
 //              .getCache("com.kaheshan.dummy.model.Person").getSize();
 //      System.out.println((size ==1) ? "true" : "false");
 
               // Add Persons
-      personService.add(new Person("Sunil", "Bora", "suni.bora@example.com"));
-
-
-
-
-
-      personService.add(new Person("David", "Miller", "david.miller@example.com"));
-      personService.add(new Person("Sameer", "Singh", "sameer.singh@example.com"));
-      personService.add(new Person("Paul", "Smith", "paul.smith@example.com"));
-
+//      personService.add(new Person("Sunil", "Bora", "suni.bora@example.com"));
+//
+//
+//
+//
+//
+//      personService.add(new Person("David", "Miller", "david.miller@example.com"));
+//      personService.add(new Person("Sameer", "Singh", "sameer.singh@example.com"));
+//      personService.add(new Person("Paul", "Smith", "paul.smith@example.com"));
+//
 
 //      personService.delete(1);
       // Get Persons

@@ -66,4 +66,9 @@ public class PersonDaoImp implements PersonDao {
 //      return em.createQuery(criteriaQuery).getResultList();
    }
 
+   @Override
+   public void update(Person p1) {
+      em.merge(p1);
+   }
+
 }

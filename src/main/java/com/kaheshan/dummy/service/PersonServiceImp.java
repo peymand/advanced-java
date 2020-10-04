@@ -44,4 +44,10 @@ public class PersonServiceImp implements PersonService {
       return userDao.get(i);
    }
 
+   @Transactional
+   @Override
+   public void update(Person p1) {
+      userDao.update(p1);
+   }
+
 }

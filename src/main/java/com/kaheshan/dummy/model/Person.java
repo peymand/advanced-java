@@ -23,6 +23,9 @@ public class Person {
     private Long id;
 
 
+    @Version
+    private long version;
+
     @Column(name = "FIRST_NAME")
     private String firstName;
 

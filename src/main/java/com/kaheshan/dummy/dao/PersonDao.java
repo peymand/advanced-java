@@ -11,4 +11,6 @@ public interface PersonDao {
    void add(Person person);
    Person get(Long id);
    List<Person> listPersons();
+
+    void update(Person p1);
 }

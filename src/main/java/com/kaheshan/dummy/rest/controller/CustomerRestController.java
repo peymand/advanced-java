@@ -1,11 +1,11 @@
 package com.kaheshan.dummy.rest.controller;
 
 import com.kaheshan.dummy.model.Customer;
+import com.kaheshan.dummy.model.Message;
 import com.kaheshan.dummy.rest.exeption.MyResourceNotFoundException;
 import com.kaheshan.dummy.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,11 +29,11 @@ public class CustomerRestController {
         return RestPreconditions.checkFound(service.getCustomer(id.intValue()));
     }
 
-    @PostMapping
+    @PostMapping(consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public Long create(@RequestBody Customer resource) {
+    public ResponseEntity<Message> create(@RequestBody Customer resource) {
 //        Preconditions.checkNotNull(resource);
-        return service.saveCustomer(resource);
+        return new ResponseEntity<>(new Message(String.format("Object Created with id = %d ",service.saveCustomer(resource))),HttpStatus.CREATED);
     }
 
     @PutMapping(value = "/{id}")
@@ -44,11 +44,11 @@ public class CustomerRestController {
         service.update(resource);
     }
 
-    @DeleteMapping(value = "/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(value = "/{id}")//,produces = MediaType.APPLICATION_JSON_VALUE)
 //    @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<String> delete(@PathVariable("id") Long id) {
+    public ResponseEntity<Message> delete(@PathVariable("id") Long id) {
         service.deleteCustomer(id.intValue());
-        return new ResponseEntity<>(String.format("Customer with id : %d deleted",id),HttpStatus.OK);
+        return new ResponseEntity<>(new Message(String.format("Customer with id : %d deleted",id)),HttpStatus.OK);
     }
 
 }

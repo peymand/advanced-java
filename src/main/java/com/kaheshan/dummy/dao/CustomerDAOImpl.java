@@ -44,7 +44,8 @@ public class CustomerDAOImpl implements CustomerDAO {
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		// save/upate the customer ... finally LOL
-		return (Long) currentSession.save(theCustomer);
+        currentSession.save(theCustomer);
+		return  Long.valueOf(theCustomer.getId());
 
 
 		

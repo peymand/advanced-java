@@ -1,0 +1,8 @@
+Build a REST API with Spring and Java Config
+The Spring @Controller and @RestController Annotations
+Error Handling for REST
+Entity To DTO Conversion for a Spring REST API
+Spring’s RequestBody and ResponseBody Annotations
+How to Read HTTP Headers in Spring REST Controllers
+Using Spring @ResponseStatus to Set HTTP Status Code
+Using Spring ResponseEntity to Manipulate the HTTP Response

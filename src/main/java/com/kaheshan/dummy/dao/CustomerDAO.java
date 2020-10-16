@@ -9,10 +9,11 @@ public interface CustomerDAO {
 
 	public List<Customer> getCustomers();
 
-	public void saveCustomer(Customer theCustomer);
+	Long saveCustomer(Customer theCustomer);
 
 	public Customer getCustomer(int theId);
 
 	public void deleteCustomer(int theId);
-	
+
+	void update(Customer resource);
 }

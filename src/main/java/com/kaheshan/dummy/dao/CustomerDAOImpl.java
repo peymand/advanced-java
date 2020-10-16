@@ -8,6 +8,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 
 @Repository
@@ -16,7 +17,8 @@ public class CustomerDAOImpl implements CustomerDAO {
 	// need to inject the session factory
 	@Autowired
 	private SessionFactory sessionFactory;
-			
+
+
 	@Override
 	public List<Customer> getCustomers() {
 		
@@ -36,13 +38,15 @@ public class CustomerDAOImpl implements CustomerDAO {
 	}
 
 	@Override
-	public void saveCustomer(Customer theCustomer) {
+	public Long saveCustomer(Customer theCustomer) {
 
 		// get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		// save/upate the customer ... finally LOL
-		currentSession.saveOrUpdate(theCustomer);
+		return (Long) currentSession.save(theCustomer);
+
+
 		
 	}
 
@@ -70,6 +74,12 @@ public class CustomerDAOImpl implements CustomerDAO {
 		theQuery.setParameter("customerId", theId);
 		
 		theQuery.executeUpdate();		
+	}
+
+	@Override
+	public void update(Customer resource) {
+		Session currentSession = sessionFactory.getCurrentSession();
+		currentSession.update(resource);
 	}
 
 }

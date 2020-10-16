@@ -31,10 +31,10 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public void saveCustomer(Customer theCustomer) {
+	public Long saveCustomer(Customer theCustomer) {
 
-		customerDAO.saveCustomer(theCustomer);
-		
+
+		return customerDAO.saveCustomer(theCustomer);
 	}
 
 	@Override
@@ -50,6 +50,16 @@ public class CustomerServiceImpl implements CustomerService {
 	public void deleteCustomer(int theId) {
 
 		customerDAO.deleteCustomer(theId);
+	}
+
+	@Override
+	public List<Customer> findAll() {
+		return customerDAO.getCustomers();
+	}
+
+	@Override
+	public void update(Customer resource) {
+		customerDAO.update(resource);
 	}
 
 }

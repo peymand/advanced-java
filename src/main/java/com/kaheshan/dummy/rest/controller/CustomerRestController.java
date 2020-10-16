@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @RestController
@@ -46,10 +48,17 @@ public class CustomerRestController {
 
     @DeleteMapping(value = "/{id}")//,produces = MediaType.APPLICATION_JSON_VALUE)
 //    @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<Message> delete(@PathVariable("id") Long id) {
+    public ResponseEntity<Message> delete(@PathVariable("id") Long id) throws SQLException {
         service.deleteCustomer(id.intValue());
         return new ResponseEntity<>(new Message(String.format("Customer with id : %d deleted",id)),HttpStatus.OK);
     }
+
+//    @ExceptionHandler({ Exception.class, SQLException.class })
+//    public ResponseEntity<Message> handleException(SQLException exc) {
+//        return new ResponseEntity<>(new Message("ID does not exists"),HttpStatus.EXPECTATION_FAILED);
+////        return new ResponseStatusException(HttpStatus.NOT_MODIFIED, "ID does not exists", exc);
+//
+//    }
 
 }
 class RestPreconditions {

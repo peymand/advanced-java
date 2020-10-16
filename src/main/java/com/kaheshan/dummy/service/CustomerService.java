@@ -3,6 +3,7 @@ package com.kaheshan.dummy.service;
 
 import com.kaheshan.dummy.model.Customer;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface CustomerService {
@@ -13,7 +14,7 @@ public interface CustomerService {
 
 	Customer getCustomer(int theId);
 
-	void deleteCustomer(int theId);
+	void deleteCustomer(int theId) throws SQLException;
 
     List<Customer> findAll();
 

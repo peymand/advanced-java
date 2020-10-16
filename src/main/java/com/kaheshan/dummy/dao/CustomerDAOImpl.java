@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import java.sql.SQLException;
 import java.util.List;
 
 @Repository
@@ -64,7 +65,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	}
 
 	@Override
-	public void deleteCustomer(int theId) {
+	public void deleteCustomer(int theId) throws SQLException{
 
 		// get the current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -73,9 +74,11 @@ public class CustomerDAOImpl implements CustomerDAO {
 		Query theQuery = 
 				currentSession.createQuery("delete from Customer where id=:customerId");
 		theQuery.setParameter("customerId", theId);
-		
-		theQuery.executeUpdate();		
-	}
+
+        int result  = theQuery.executeUpdate();
+        if(result == 0)
+            throw new SQLException();
+    }
 
 	@Override
 	public void update(Customer resource) {

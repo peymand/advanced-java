@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLException;
 import java.util.List;
 
 @Controller
@@ -64,7 +65,7 @@ public class CustomerController {
 	}
 	
 	@GetMapping("/delete")
-	public String deleteCustomer(@RequestParam("customerId") int theId) {
+	public String deleteCustomer(@RequestParam("customerId") int theId) throws SQLException{
 		
 		// delete the customer
 		customerService.deleteCustomer(theId);

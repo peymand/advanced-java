@@ -31,7 +31,8 @@ public class Customer {
 	private String email;
 
 	@Version
-	private int version;
+	@Column(name = "version")
+	private Long version;
 
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)

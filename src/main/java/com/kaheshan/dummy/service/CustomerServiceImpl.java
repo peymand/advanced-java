@@ -65,8 +65,8 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public void update(Customer resource) {
-		customerDAO.update(resource);
+	public void update(int id, Customer resource) {
+		customerDAO.update(id, resource);
 	}
 
 }

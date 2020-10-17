@@ -40,12 +40,14 @@ public class CustomerRestController {
         return new ResponseEntity<>(new Message(String.format("Object Created with id = %d ",service.saveCustomer(resource))),HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "/{id}")
+    @PutMapping(value = "/{id}",consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
     public void update(@PathVariable( "id" ) Long id, @RequestBody Customer resource) {
 //        Preconditions.checkNotNull(resource);
-        RestPreconditions.checkNotNull(service.getCustomer(resource.getId()));
-        service.update(resource);
+//        RestPreconditions.checkNotNull(service.getCustomer(id.intValue()));
+//        resource.setId(id.intValue());
+        service.update(id.intValue(), resource);
+        System.out.println("");
     }
 
     @DeleteMapping(value = "/{id}")//,produces = MediaType.APPLICATION_JSON_VALUE)

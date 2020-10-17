@@ -16,5 +16,5 @@ public interface CustomerDAO {
 
 	public void deleteCustomer(int theId)throws SQLException;
 
-	void update(Customer resource);
+	void update(int id, Customer resource);
 }

@@ -19,5 +19,5 @@ public interface CustomerService {
 
     List<Customer> findAll();
 
-	void update(Customer resource);
+	void update(int id, Customer resource);
 }

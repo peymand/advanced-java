@@ -81,9 +81,12 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
 	@Override
-	public void update(Customer resource) {
+	public void update(int id, Customer resource) {
 		Session currentSession = sessionFactory.getCurrentSession();
+//		currentSession.get(Customer.class, id);
+		resource.setId(id);
 		currentSession.update(resource);
+		System.out.println("Finish");
 	}
 
 }

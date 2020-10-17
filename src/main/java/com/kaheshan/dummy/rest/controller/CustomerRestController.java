@@ -1,6 +1,7 @@
 package com.kaheshan.dummy.rest.controller;
 
 import com.kaheshan.dummy.model.Customer;
+import com.kaheshan.dummy.model.CustomerDTO;
 import com.kaheshan.dummy.model.Message;
 import com.kaheshan.dummy.rest.exeption.MyResourceNotFoundException;
 import com.kaheshan.dummy.service.CustomerService;
@@ -23,6 +24,7 @@ public class CustomerRestController {
 
     @GetMapping
     public List<Customer> findAll() {
+        
         return service.findAll();
     }
 
@@ -33,7 +35,7 @@ public class CustomerRestController {
 
     @PostMapping(consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Message> create(@RequestBody Customer resource) {
+    public ResponseEntity<Message> create(@RequestBody CustomerDTO resource) {
 //        Preconditions.checkNotNull(resource);
         return new ResponseEntity<>(new Message(String.format("Object Created with id = %d ",service.saveCustomer(resource))),HttpStatus.CREATED);
     }

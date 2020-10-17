@@ -1,6 +1,7 @@
 package com.kaheshan.dummy.controller;
 
 import com.kaheshan.dummy.model.Customer;
+import com.kaheshan.dummy.model.CustomerDTO;
 import com.kaheshan.dummy.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,7 +43,7 @@ public class CustomerController {
 	}
 	
 	@PostMapping("/saveCustomer")
-	public String saveCustomer(@ModelAttribute("customer") Customer theCustomer) {
+	public String saveCustomer(@ModelAttribute("customer") CustomerDTO theCustomer) {
 		
 		// save the customer using our service
 		customerService.saveCustomer(theCustomer);	

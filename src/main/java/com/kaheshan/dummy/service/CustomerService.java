@@ -2,6 +2,7 @@ package com.kaheshan.dummy.service;
 
 
 import com.kaheshan.dummy.model.Customer;
+import com.kaheshan.dummy.model.CustomerDTO;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -10,7 +11,7 @@ public interface CustomerService {
 
 	List<Customer> getCustomers();
 
-    Long saveCustomer(Customer theCustomer);
+    Long saveCustomer(CustomerDTO theCustomer);
 
 	Customer getCustomer(int theId);
 

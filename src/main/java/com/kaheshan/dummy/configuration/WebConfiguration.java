@@ -1,5 +1,6 @@
 package com.kaheshan.dummy.configuration;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +15,7 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "com.kaheshan.dummy")
-public class HelloWorldConfiguration implements WebMvcConfigurer{
+public class WebConfiguration implements WebMvcConfigurer{
 
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
@@ -36,6 +37,11 @@ public class HelloWorldConfiguration implements WebMvcConfigurer{
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	}
 
+
+	@Bean
+	public ModelMapper modelMapper() {
+		return new ModelMapper();
+	}
 
 
 }

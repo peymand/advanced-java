@@ -28,7 +28,7 @@ public class CustomerRestController {
     //Exception Handling
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public String saveCustomer(Customer customer){
+    public String saveCustomer(@RequestBody Customer customer){
 
         customerService.saveCustomer(customer);
         return "Saved!!!";

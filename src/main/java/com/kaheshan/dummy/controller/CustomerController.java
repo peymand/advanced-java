@@ -23,7 +23,9 @@ public class CustomerController {
 		
 		// get customers from the service
 		List<Customer> theCustomers = customerService.getCustomers();
-				
+
+
+
 		// add the customers to the model
 		theModel.addAttribute("customers", theCustomers);
 		

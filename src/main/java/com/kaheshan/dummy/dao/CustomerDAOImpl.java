@@ -42,7 +42,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 		Session currentSession = sessionFactory.getCurrentSession();
 		
 		// save/upate the customer ... finally LOL
-		currentSession.saveOrUpdate(theCustomer);
+		currentSession.save(theCustomer);
 		
 	}
 

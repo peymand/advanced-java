@@ -40,11 +40,11 @@ public class CustomerRestController {
         return RestPreconditions.checkFound(service.getCustomer(id.intValue()));
     }
 
-    @GetMapping(value = "/{id}")
-    public Customer findById2(@PathVariable("id") Long id, @RequestHeader HttpHeaders httpHeaders) {
-        InetSocketAddress address = httpHeaders.getHost();
-        return RestPreconditions.checkFound(service.getCustomer(id.intValue()));
-    }
+//    @GetMapping(value = "/{id}")
+//    public Customer findById2(@PathVariable("id") Long id, @RequestHeader HttpHeaders httpHeaders) {
+//        InetSocketAddress address = httpHeaders.getHost();
+//        return RestPreconditions.checkFound(service.getCustomer(id.intValue()));
+//    }
 
     @PostMapping(consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)

@@ -70,7 +70,7 @@ public class WebConfiguration implements WebMvcConfigurer{
 				.select()
 //				.apis(RequestHandlerSelectors.any())
 				.apis(RequestHandlerSelectors.basePackage("com.kaheshan.dummy.rest"))
-				.paths(PathSelectors.ant("/rest/*"))
+				.paths(PathSelectors.ant("/rest/**"))
 //				.paths(PathSelectors.any())
 				.build()
 				.apiInfo(apiInfo());

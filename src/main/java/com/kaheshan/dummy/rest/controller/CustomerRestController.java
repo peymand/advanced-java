@@ -5,19 +5,18 @@ import com.kaheshan.dummy.model.CustomerDTO;
 import com.kaheshan.dummy.model.Message;
 import com.kaheshan.dummy.rest.exeption.MyResourceNotFoundException;
 import com.kaheshan.dummy.service.CustomerService;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.MethodParameter;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
-import java.net.InetSocketAddress;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -30,6 +29,8 @@ public class CustomerRestController {
     private CustomerService service;
 
     @GetMapping
+    @ApiOperation(value = "get all customers", response = Customer.class, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiImplicitParams({@ApiImplicitParam(name="Get All Customers", value="this service fetches all customers")})
     public List<Customer> findAll() {
         
         return service.findAll();

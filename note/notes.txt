@@ -1,3 +1,5 @@
+Basic:
+
 Build a REST API with Spring and Java Config
 The Spring @Controller and @RestController Annotations
 Error Handling for REST (@ExceptionHandler, @ControllerAdvice annotation , ResponseStatusException class)
@@ -7,3 +9,15 @@ Spring’s RequestBody and ResponseBody Annotations
 How to Read HTTP Headers in Spring REST Controllers
 Using Spring @ResponseStatus to Set HTTP Status Code
 Using Spring ResponseEntity to Manipulate the HTTP Response
+
+Advanced:
+Setting Up Swagger 2 with a Spring REST API
+
+
+
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X POST --data
+  '{"username": "johnny", "password": "password"}' "https://localhost:8080/.../request"
+

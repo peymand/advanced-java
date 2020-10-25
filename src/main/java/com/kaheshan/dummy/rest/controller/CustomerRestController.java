@@ -7,6 +7,7 @@ import com.kaheshan.dummy.rest.exeption.MyResourceNotFoundException;
 import com.kaheshan.dummy.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
+import java.net.InetSocketAddress;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -34,7 +36,13 @@ public class CustomerRestController {
     }
 
     @GetMapping(value = "/{id}")
-    public Customer findById(@PathVariable("id") Long id) {
+    public Customer findById(@PathVariable("id") Long id, @RequestHeader("accept-language") String language ) {
+        return RestPreconditions.checkFound(service.getCustomer(id.intValue()));
+    }
+
+    @GetMapping(value = "/{id}")
+    public Customer findById2(@PathVariable("id") Long id, @RequestHeader HttpHeaders httpHeaders) {
+        InetSocketAddress address = httpHeaders.getHost();
         return RestPreconditions.checkFound(service.getCustomer(id.intValue()));
     }
 
@@ -42,7 +50,7 @@ public class CustomerRestController {
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Message> create(@Valid @RequestBody  CustomerDTO resource, BindingResult result) {
         if(result.hasErrors()){
-            return new ResponseEntity<Message>(new Message("input validation Faild"),HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new Message("input validation Faild"),HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>(new Message(String.format("Object Created with id = %d ",service.saveCustomer(resource))),HttpStatus.CREATED);
     }

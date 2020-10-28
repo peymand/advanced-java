@@ -22,7 +22,6 @@ public class CustomerDTO {
 
     @NotNull
     @NotEmpty(message = "Name is mandatory")
-    @Min(1)
     private String firstName;
 
 

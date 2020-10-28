@@ -35,6 +35,9 @@ public class Customer {
 	@Column(name="email")
 	private String email;
 
+	@Column(name="email_2")
+	private String email2;
+
 	@Version
 	@Column(name = "version")
 	private Long version;

@@ -9,7 +9,7 @@ Spring’s RequestBody and ResponseBody Annotations
 How to Read HTTP Headers in Spring REST Controllers
 Using Spring @ResponseStatus to Set HTTP Status Code
 Using Spring ResponseEntity to Manipulate the HTTP Response
-
+Rest client Rest Template and Axaj solution
 Advanced:
 Setting Up Swagger 2 with a Spring REST API
 

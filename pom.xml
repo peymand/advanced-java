@@ -140,6 +140,12 @@
             <version>1.2.32</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+
 
     </dependencies>
 
@@ -163,6 +169,17 @@
                         <warSourceDirectory>src/main/webapp</warSourceDirectory>
                         <warName>Spring4MVCHelloWorldNoXMLDemo</warName>
                         <failOnMissingWebXml>false</failOnMissingWebXml>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.liquibase</groupId>
+                    <artifactId>liquibase-maven-plugin</artifactId>
+                    <version>3.4.1</version>
+                    <configuration>
+                        <propertyFile>src/main/resources/liquibase.properties</propertyFile>
+                        <databaseChangeLogTableName>Z_LIQ_CHANGELOG</databaseChangeLogTableName>
+                        <databaseChangeLogLockTableName>Z_LIQ_CHANGELOG_LOCK</databaseChangeLogLockTableName>
                     </configuration>
                 </plugin>
             </plugins>

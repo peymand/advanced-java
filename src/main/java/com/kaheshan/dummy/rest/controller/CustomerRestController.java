@@ -36,8 +36,8 @@ public class CustomerRestController {
     }
 
     @GetMapping(value = "/{id}")
-    public Customer findById(@PathVariable("id") Long id, @RequestHeader("accept-language") String language ) {
-        return RestPreconditions.checkFound(service.getCustomer(id.intValue()));
+    public ResponseEntity<Customer> findById(@PathVariable("id") Long id ) {
+        return RestPreconditions.checkFound(new ResponseEntity<>(service.getCustomer(id.intValue()),HttpStatus.OK));
     }
 
 //    @GetMapping(value = "/{id}")

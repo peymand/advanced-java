@@ -14,6 +14,7 @@
 	<link type="text/css"
 		  rel="stylesheet"
 		  href="<spring:url value="/resources/css/add-customer-style.css"/>"/>
+	<script src="<spring:url value="/resources/js/main.js"/>"></script>
 </head>
 
 <body>
@@ -30,13 +31,20 @@
 		<form:form action="saveCustomer" modelAttribute="customer" method="POST">
 
 			<!-- need to associate this data with customer id -->
-			<form:hidden path="id" />
+			<%--<form:hidden path="id" />--%>
 					
 			<table>
 				<tbody>
+
+				<tr>
+					<td><label>ID:</label></td>
+					<td><input name="id" id="id" /></td>
+					<td><button type="button" value="check" name="id" onclick="ajaxFetch()">Check!</button></td>
+				</tr>
+
 					<tr>
 						<td><label>First name:</label></td>
-						<td><form:input path="firstName" /></td>
+						<td><form:input path="firstName" id="firstName"/></td>
 					</tr>
 				
 					<tr>

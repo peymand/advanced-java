@@ -1,23 +1,13 @@
 Basic:
+    Authentication and access control framework
+    standard for securing spring based applications
 
-Build a REST API with Spring and Java Config
-The Spring @Controller and @RestController Annotations
-Error Handling for REST (@ExceptionHandler, @ControllerAdvice annotation , ResponseStatusException class)
-Entity To DTO Conversion for a Spring REST API
-Validation in spring rest
-Spring’s RequestBody and ResponseBody Annotations
-How to Read HTTP Headers in Spring REST Controllers
-Using Spring @ResponseStatus to Set HTTP Status Code
-Using Spring ResponseEntity to Manipulate the HTTP Response
-Rest client Rest Template and Axaj solution
-Advanced:
-Setting Up Swagger 2 with a Spring REST API
+
+setup spring security
 
 
 
-curl -i \
--H "Accept: application/json" \
--H "Content-Type:application/json" \
--X POST --data
-  '{"username": "johnny", "password": "password"}' "https://localhost:8080/.../request"
+
+security and aop
+
 

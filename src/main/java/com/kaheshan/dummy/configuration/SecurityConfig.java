@@ -11,10 +11,14 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import javax.sql.DataSource;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Autowired
+    private DataSource securityDataSource;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -38,17 +42,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth)
             throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("user1").password(passwordEncoder().encode("1")).roles("EMPLOYEE")
-                .and()
-                .withUser("user2").password(passwordEncoder().encode("2")).roles("EMPLOYEE","MANAGER")
-                .and()
-                .withUser("admin").password(passwordEncoder().encode("111")).roles("EMPLOYEE","ADMIN");
+        auth.jdbcAuthentication().dataSource(securityDataSource);
+//        auth.inMemoryAuthentication()
+//                .withUser("user1").password(passwordEncoder().encode("1")).roles("EMPLOYEE")
+//                .and()
+//                .withUser("user2").password(passwordEncoder().encode("2")).roles("EMPLOYEE","MANAGER")
+//                .and()
+//                .withUser("admin").password(passwordEncoder().encode("111")).roles("EMPLOYEE","ADMIN");
     }
 
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+//    @Bean
+//    public PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
 }

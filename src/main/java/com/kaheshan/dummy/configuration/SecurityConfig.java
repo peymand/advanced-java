@@ -11,23 +11,32 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-
+@Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/**").authenticated()
-                .and().httpBasic();
+        http
+                .authorizeRequests()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/showMyLoginPage")
+                .loginProcessingUrl("/authenticateTheUser")
+                .permitAll();
     }
-
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth)
             throws Exception {
-        auth.inMemoryAuthentication().withUser("user")
-                .password(passwordEncoder().encode("password")).roles("USER");
+        auth.inMemoryAuthentication()
+                .withUser("user1").password(passwordEncoder().encode("1")).roles("Employee")
+                .and()
+                .withUser("user2").password(passwordEncoder().encode("2")).roles("manager")
+                .and()
+                .withUser("admin").password(passwordEncoder().encode("111")).roles("ADMIN");
     }
 
 

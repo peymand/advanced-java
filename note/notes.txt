@@ -1,7 +1,10 @@
 Basic:
     Authentication and access control framework
     standard for securing spring based applications
-
+    login page
+    logout
+    csrf
+    jsp taglib in security
 
 setup spring security
 

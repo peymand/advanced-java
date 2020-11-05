@@ -17,17 +17,21 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class CustomerDTO {
 
-
-    private int id;
-
     @NotNull
     @NotEmpty(message = "Name is mandatory")
     private String firstName;
-
 
     private String lastName;
 
     @NotEmpty(message = "Email is mandatory")
     @Email(message = "email should be a valid email")
     private String email;
+
+    @Getter
+    @Setter
+    public static class Info{
+
+        private int id;
+
+    }
 }

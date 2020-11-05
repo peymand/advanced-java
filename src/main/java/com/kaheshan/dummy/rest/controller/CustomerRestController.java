@@ -14,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import javax.validation.Valid;
 import java.sql.SQLException;
@@ -28,17 +29,26 @@ public class CustomerRestController {
     private CustomerService service;
 
     @GetMapping
-    @ApiOperation(value = "get all customers", response = Customer.class, produces = MediaType.APPLICATION_JSON_VALUE)
-    @ApiImplicitParams({@ApiImplicitParam(name="Get All Customers", value="this service fetches all customers")})
+    @ApiOperation(value = "get all customers", response = CustomerDTO.class, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiImplicitParams({@ApiImplicitParam(name = "Get All Customers", value = "this service fetches all customers")})
     public List<Customer> findAll() {
-        
+
         return service.findAll();
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Customer> findById(@PathVariable("id") Long id ) {
-        return RestPreconditions.checkFound(new ResponseEntity<>(service.getCustomer(id.intValue()),HttpStatus.OK));
+    public ResponseEntity<Customer> findById(@PathVariable("id") Long id) {
+        Customer customer = service.getCustomer(id.intValue());
+        RestPreconditions.checkFound(customer);
+
+        return new ResponseEntity<>(customer, HttpStatus.OK);
+
     }
+
+//    @ExceptionHandler(NullPointerException.class)
+//    public ResponseEntity<Message> handleNullObjectException(NullPointerException e) {
+//        return new ResponseEntity<>(new Message(String.format("User with id = %d not Found",e.getMessage())),HttpStatus.NOT_FOUND);
+//    }
 
 //    @GetMapping(value = "/{id}")
 //    public Customer findById2(@PathVariable("id") Long id, @RequestHeader HttpHeaders httpHeaders) {
@@ -48,16 +58,18 @@ public class CustomerRestController {
 
     @PostMapping(consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Message> create(@Valid @RequestBody  CustomerDTO resource, BindingResult result) {
-        if(result.hasErrors()){
-            return new ResponseEntity<>(new Message("input validation Faild"),HttpStatus.BAD_REQUEST);
+    public ResponseEntity<Message> create(@Valid @RequestBody CustomerDTO resource, BindingResult result) {
+        if (result.hasErrors()) {
+         return  ResponseEntity.badRequest().body(new Message("input validation Faild"));
+//            return new ResponseEntity<>(new Message("input validation Faild"), HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(new Message(String.format("Object Created with id = %d ",service.saveCustomer(resource))),HttpStatus.CREATED);
+
+        return new ResponseEntity<>(new Message(String.format("Object Created with id = %d ", service.saveCustomer(resource))), HttpStatus.CREATED);
     }
 
-    @PutMapping(value = "/{id}",consumes = "application/json", produces = "application/json")
+    @PutMapping(value = "/{id}", consumes = "application/json", produces = "application/json")
     @ResponseStatus(HttpStatus.OK)
-    public void update(@PathVariable( "id" ) Long id, @RequestBody Customer resource) {
+    public void update(@PathVariable("id") Long id, @RequestBody Customer resource) {
 //        Preconditions.checkNotNull(resource);
 //        RestPreconditions.checkNotNull(service.getCustomer(id.intValue()));
 //        resource.setId(id.intValue());
@@ -69,7 +81,7 @@ public class CustomerRestController {
 //    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Message> delete(@PathVariable("id") Long id) throws SQLException {
         service.deleteCustomer(id.intValue());
-        return new ResponseEntity<>(new Message(String.format("Customer with id : %d deleted",id)),HttpStatus.OK);
+        return new ResponseEntity<>(new Message(String.format("Customer with id : %d deleted", id)), HttpStatus.OK);
     }
 
 //    @ExceptionHandler({ Exception.class, SQLException.class })
@@ -80,10 +92,11 @@ public class CustomerRestController {
 //    }
 
 }
+
 class RestPreconditions {
     public static <T> T checkFound(T resource) {
         if (resource == null) {
-            throw new MyResourceNotFoundException();
+            throw new NullPointerException("1");
         }
         return resource;
     }

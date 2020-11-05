@@ -47,7 +47,8 @@ public class WebConfiguration implements WebMvcConfigurer{
 	}
 
 	public void addResourceHandlers(final ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+		registry.addResourceHandler("/resources/**")
+                .addResourceLocations("/resources/");
 
 		registry.addResourceHandler("swagger-ui.html")
 				.addResourceLocations("classpath:/META-INF/resources/");

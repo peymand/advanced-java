@@ -9,7 +9,7 @@ function ajaxFetch() {
         }
     };
     // xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.open("GET", "http://localhost:8080/rest/customer/" + document.getElementById("id").value, true);
+    xhttp.open("GET", "http://localhost:8080/demo/rest/customer/" + document.getElementById("id").value, true);
     xhttp.send();
 
 

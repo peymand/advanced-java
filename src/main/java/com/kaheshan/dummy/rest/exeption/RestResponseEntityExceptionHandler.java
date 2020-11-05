@@ -38,8 +38,7 @@ public class RestResponseEntityExceptionHandler
     @ExceptionHandler(NullPointerException.class)
     protected ResponseEntity<Object> NullPointerHandler(NullPointerException ex, WebRequest request) {
         String bodyOfResponse = "Oops!!, try it later!!!";
-        return handleExceptionInternal(ex, bodyOfResponse,
-                new HttpHeaders(), HttpStatus.CONFLICT, request);
+        return handleExceptionInternal(ex, bodyOfResponse, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
     }
 
 //    @ResponseStatus(HttpStatus.BAD_REQUEST)

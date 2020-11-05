@@ -23,24 +23,22 @@ public class Customer {
 	@Column(name="id")
 	private int id;
 
-//	@NotBlank(message = "Name is mandatory")
+	@NotBlank(message = "Name is mandatory")
 	@Column(name="first_name")
 	private String firstName;
 	
 	@Column(name="last_name")
 	private String lastName;
 
-//	@NotBlank(message = "Email is mandatory")
-//	@Email(message = "email should be a valid email")
+	@NotBlank(message = "Email is mandatory")
+	@Email(message = "email should be a valid email")
 	@Column(name="email")
 	private String email;
-
-	@Column(name="email_2")
-	private String email2;
 
 	@Version
 	@Column(name = "version")
 	private Long version;
+
 
 	@CreationTimestamp
 	@Temporal(TemporalType.TIMESTAMP)

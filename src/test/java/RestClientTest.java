@@ -25,11 +25,11 @@ public class RestClientTest {
     public void restTemplateGetCustomer(){
         RestTemplate restTemplate = new RestTemplate();
         String fooResourceUrl
-                = "http://localhost:8080/rest/customer";
+                = "http://localhost:8080/demo/rest/customer";
         HttpHeaders headers = new HttpHeaders();
 
         ResponseEntity<Customer> response
-                = restTemplate.getForEntity(fooResourceUrl + "/18", Customer.class);
+                = restTemplate.getForEntity(fooResourceUrl + "/2", Customer.class);
         assertThat(response.getStatusCode(), equalTo(HttpStatus.OK));
     }
 
@@ -38,7 +38,7 @@ public class RestClientTest {
     public void restTemplatePostCustomer() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
 
-        String createCustomerUrl = "http://localhost:8080/rest/customer";
+        String createCustomerUrl = "http://localhost:8080/demo/rest/customer";
         String updateCustomerUrl = "http://localhost:8080/rest/customer";
 
         RestTemplate restTemplate = new RestTemplate();

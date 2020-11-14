@@ -4,6 +4,7 @@ import com.kaheshan.dummy.model.Customer;
 import com.kaheshan.dummy.model.CustomerDTO;
 import com.kaheshan.dummy.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,8 @@ public class CustomerController {
 	// need to inject our customer service
 	@Autowired
 	private CustomerService customerService;
-	
+
+	@PreAuthorize("hasRole(ADMIN)")
 	@GetMapping("/list")
 	public String listCustomers(Model theModel) {
 		

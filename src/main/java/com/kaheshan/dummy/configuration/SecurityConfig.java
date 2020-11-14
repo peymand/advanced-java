@@ -23,10 +23,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+
                 .authorizeRequests()
                 .antMatchers("/").hasRole("EMPLOYEE")
-                .antMatchers("/leaders/**").hasRole("MANAGER")
-                .antMatchers("/systems/**").hasRole("ADMIN")
+                .antMatchers("/customer/**").hasRole("MANAGER")
+                .antMatchers("/rest/**").hasRole("ADMIN")
                 .and()
                 .formLogin()
                 .loginPage("/showMyLoginPage")
@@ -43,12 +44,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth)
             throws Exception {
         auth.jdbcAuthentication().dataSource(securityDataSource);
-//        auth.inMemoryAuthentication()
-//                .withUser("user1").password(passwordEncoder().encode("1")).roles("EMPLOYEE")
-//                .and()
-//                .withUser("user2").password(passwordEncoder().encode("2")).roles("EMPLOYEE","MANAGER")
-//                .and()
-//                .withUser("admin").password(passwordEncoder().encode("111")).roles("EMPLOYEE","ADMIN");
     }
 
 

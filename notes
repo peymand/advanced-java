@@ -3,3 +3,6 @@ Package By Feature vs Package By Layer
 Loading Initial Data with Spring Boot
 Customize Whitelabel Error Page
 logging in spring boot
+
+
+application-dev.properties file vs application-production.properties

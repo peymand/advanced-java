@@ -24,7 +24,7 @@ public class EmployeeRestController {
 	// expose "/employees" and return list of employees
 	@GetMapping("/employees")
 	public List<Employee> findAll() {
-		Sort
+
 		Pageable of = PageRequest.of(0, 2, Sort.by("firstName").descending().and(Sort.by("email")));
 		return employeeService.findAll();
 	}

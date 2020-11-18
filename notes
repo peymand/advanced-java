@@ -6,3 +6,6 @@ logging in spring boot
 
 
 application-dev.properties file vs application-production.properties
+
+spring security
+    https://www.marcobehler.com/guides/spring-security

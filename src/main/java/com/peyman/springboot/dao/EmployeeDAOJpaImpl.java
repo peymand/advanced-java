@@ -6,6 +6,12 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+import java.awt.print.Book;
 import java.util.List;
 
 @Repository
@@ -64,6 +70,18 @@ public class EmployeeDAOJpaImpl implements EmployeeDAO {
 		theQuery.setParameter("employeeId", theId);
 		
 		theQuery.executeUpdate();
+	}
+	List<Employee> findBooksByAuthorNameAndTitle(String name, String family) {
+		CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+		CriteriaQuery<Employee> cq = cb.createQuery(Employee.class);
+
+		Root<Employee> employeeRoot = cq.from(Employee.class);
+		Predicate authorNamePredicate = cb.equal(employeeRoot.get("firstName"), name);
+		Predicate titlePredicate = cb.like(employeeRoot.get("family"), "%" + family + "%");
+		cq.where(authorNamePredicate, titlePredicate);
+
+		TypedQuery<Employee> query = entityManager.createQuery(cq);
+		return query.getResultList();
 	}
 
 }

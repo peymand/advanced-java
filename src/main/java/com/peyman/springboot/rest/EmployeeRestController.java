@@ -5,6 +5,10 @@ import com.peyman.springboot.entities.Employee;
 import com.peyman.springboot.service.EmployeeService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +24,8 @@ public class EmployeeRestController {
 	// expose "/employees" and return list of employees
 	@GetMapping("/employees")
 	public List<Employee> findAll() {
+		Sort
+		Pageable of = PageRequest.of(0, 2, Sort.by("firstName").descending().and(Sort.by("email")));
 		return employeeService.findAll();
 	}
 

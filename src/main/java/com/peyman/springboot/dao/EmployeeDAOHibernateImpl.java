@@ -2,6 +2,7 @@ package com.peyman.springboot.dao;
 
 
 import com.peyman.springboot.entities.Employee;
+import lombok.AllArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,19 +10,14 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import java.util.List;
-
+@AllArgsConstructor
 @Repository
 public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 
 	// define field for entitymanager	
 	private EntityManager entityManager;
 		
-	// set up constructor injection
-	@Autowired
-	public EmployeeDAOHibernateImpl(EntityManager theEntityManager) {
-		entityManager = theEntityManager;
-	}
-	
+
 	
 	@Override
 	public List<Employee> findAll() {

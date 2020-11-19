@@ -1,0 +1,51 @@
+info:
+  app:
+    name : Java Advanced App
+    author:
+      name: peyman
+  company:
+    location: tehran
+
+
+
+
+
+
+
+server:
+  error:
+    whitelabel:
+      enabled: false
+  servlet:
+    context-path: /demo
+spring:
+  profiles:
+    active: dev
+
+---
+spring:
+  config:
+    activate:
+      on-profile: production
+logging:
+  level:
+    com.peyman.springboot.controller: Info
+    com.peyman.springboot.rest: error
+    org.springframework.core : error
+data:
+  value : on production
+location : c drive
+
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+logging:
+  level:
+    com.peyman.springboot.controller: trace
+    com.peyman.springboot.rest: debug
+    org.springframework.core : debug
+data:
+  value : on dev
+location : c drive

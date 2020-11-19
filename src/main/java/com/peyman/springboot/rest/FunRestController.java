@@ -18,7 +18,17 @@ public class FunRestController {
 
 		return "Hello World! Time on server is " + LocalDateTime.now();
 	}
-	
+	@GetMapping("/new")
+	public String sayHelloNew() {
+
+		return "Hello World! Time on server is " + LocalDateTime.now();
+	}
+	@GetMapping("/new-new")
+	public String sayHelloNew2() {
+
+		return "Hello World! Time on server is " + LocalDateTime.now();
+	}
+
 }
 
 

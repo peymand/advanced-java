@@ -9,13 +9,18 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
-	// that's it ... no need to write any code LOL!
-    Page<Employee> findByFirstNameAndEmail(String name, String email, Pageable pageable);
+    List<Employee>  findEmployeesByEmail(String email, Pageable pageable);
 
+
+//	// that's it ... no need to write any code LOL!
+//    Page<Employee> findByFirstNameAndEmail(String name, String email, Pageable pageable);
+//
     @Query("SELECT e FROM Employee e WHERE LOWER(e.firstName) = LOWER(:name)")
     Employee retrieveByName(@Param("name") String name);
 

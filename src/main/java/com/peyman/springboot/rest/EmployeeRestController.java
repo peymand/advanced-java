@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 @AllArgsConstructor
 @RestController
@@ -23,11 +24,19 @@ public class EmployeeRestController {
 
 	// expose "/employees" and return list of employees
 	@GetMapping("/employees")
-	public List<Employee> findAll() {
+	public List<Employee> findAll(Pageable pageable) {
 
-		Pageable of = PageRequest.of(0, 2, Sort.by("firstName").descending().and(Sort.by("email")));
-		return employeeService.findAll();
+//		if(page==-1 && count == -1 && sort.equals(""))
+//			return employeeService.findAll();
+//		else{
+////			Sort.by("firstName").and(Sort.by("lastName")).ascending();
+//
+			return employeeService.findAll(pageable);
+
+
 	}
+
+
 
 	// add mapping for GET /employees/{employeeId}
 	

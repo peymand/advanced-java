@@ -3,6 +3,8 @@ package com.peyman.springboot.service;
 import com.peyman.springboot.entities.Employee;
 import com.peyman.springboot.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,6 +24,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Transactional
 	public List<Employee> findAll() {
 		return repository.findAll();
+	}
+
+	@Override
+	public List<Employee> findAll(Pageable pageable) {
+		return repository.findAll(pageable).toList();
 	}
 
 	@Override

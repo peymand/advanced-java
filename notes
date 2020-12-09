@@ -1,5 +1,31 @@
-Spring Data JPA
-Package By Feature vs Package By Layer
-Loading Initial Data with Spring Boot
-Customize Whitelabel Error Page
-logging in spring boot
+Lambda Expressions and Functional Interfaces
+in the java.util.function package
+    Consumer
+    Supplier
+    Predicate
+    Function
+    UnaryOperator
+
+Use the @FunctionalInterface Annotation
+Inner Classes(https://www.baeldung.com/java-nested-classes):
+    Static nested classes
+    Non-static nested classes
+    Local classes
+    Anonymous classes
+
+Stream
+Stream operations are either intermediate or terminal.
+Most stream operations accept some kind of lambda expression parameter, a functional interface specifying the exact behavior of the operation.
+intermediate operations will only be executed when a terminal operation is present.
+
+
+
+
+
+
+
+
+
+
+
+

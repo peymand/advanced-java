@@ -7,10 +7,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.function.Consumer;
+
 @Controller
 @RequestMapping("/")
 @Slf4j
 public class HomeController {
+
 
     @Value("${data.value}")
     private String dataValue;

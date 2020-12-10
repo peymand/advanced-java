@@ -64,7 +64,7 @@ public class AdvancedStreamAPI {
                 .collect(Collectors.toMap(
                         p -> p.age,
                         p -> p.name,
-                        (name1, name2) -> name1 + ";" + name2));
+                        (p1,p2)-> p1 + ";" + p2));
 
         System.out.println(map);
         // {18=Max, 23=Peter;Pamela, 12=David}
@@ -81,6 +81,8 @@ public class AdvancedStreamAPI {
                 .collect(personNameCollector);
 
         System.out.println(names);  // MAX | PETER | PAMELA | DAVID
+
+
         List<FooClass> foos = new ArrayList<>();
 
 

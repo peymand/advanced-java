@@ -2,6 +2,7 @@ package com.peyman.springboot.java8;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -16,13 +17,15 @@ public class StreamAPI {
 
 
         List<String> myList =
-                Arrays.asList("a1", "a2", "b1", "c2", "c1");
+                Arrays.asList("a1", "a2", "b4", "c22", "c12");
+        Stream<String> stream = myList.stream();
+        Predicate<String> startsWithA = s -> s.startsWith("a");
 
         // operation pipeline
         myList
                 .stream()
-                .filter(s -> s.startsWith("c"))
-                .map(String::toUpperCase)
+                .map(s->Integer.parseInt(s.substring(1)))
+                .map(Math::abs)
                 .sorted()
                 .forEach(System.out::println);
 

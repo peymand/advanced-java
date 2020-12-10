@@ -22,6 +22,7 @@ public class Person {
         return name;
     }
 }
+
 class FooClass {
     String name;
     List<BarClass> bars = new ArrayList<>();

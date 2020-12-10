@@ -1,5 +1,9 @@
 package com.peyman.springboot.entities;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.hateoas.RepresentationModel;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="employee")
-public class Employee {
+public class Employee extends RepresentationModel<Employee> {
 
 	// define fields
 	
@@ -33,8 +37,8 @@ public class Employee {
 	public Employee() {
 		
 	}
-
-	public Employee(String firstName, String lastName, String email) {
+	@JsonCreator
+	public Employee(@JsonProperty("firstName")String firstName,@JsonProperty("lastName") String lastName, @JsonProperty("email") String email) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;

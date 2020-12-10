@@ -1,5 +1,6 @@
 package com.peyman.springboot.rest;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 import com.peyman.springboot.entities.Employee;
 import com.peyman.springboot.service.EmployeeService;
@@ -31,7 +32,14 @@ public class EmployeeRestController {
 //		else{
 ////			Sort.by("firstName").and(Sort.by("lastName")).ascending();
 //
-			return employeeService.findAll(pageable);
+			List<Employee> employees =  employeeService.findAll(pageable);
+
+		for (Employee employee : employees) {
+			employee.add(linkTo(methodOn(EmployeeRestController.class).
+					getEmployee(employee.getId())).withSelfRel());
+		}
+		return employees;
+
 
 
 	}

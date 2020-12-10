@@ -1,5 +1,17 @@
-Spring Data JPA
-Package By Feature vs Package By Layer
-Loading Initial Data with Spring Boot
-Customize Whitelabel Error Page
-logging in spring boot
+Introduction to Testing
+Why write Tests?
+    improves your software quality
+    prove's that your code is doing what you think it should be doing
+    End the fix one thing, break another!
+    widely accepted as an industry best practice
+    change existing code with confidence
+https://github.com/springframeworkguru/testing-java-junit5.git
+    Assertions
+    Group Assertions
+    Dependent Assertions
+    Skipping Tests
+    Display Names
+    Expected Exceptions
+    Timeouts
+    Assumptions
+    Conditional

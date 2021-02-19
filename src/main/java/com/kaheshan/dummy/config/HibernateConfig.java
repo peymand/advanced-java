@@ -27,45 +27,45 @@ public class HibernateConfig {
     @Autowired
     private Environment environment;
 
-
-
-    LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource,
-                                                                Environment env) {
-        LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
-        entityManagerFactoryBean.setDataSource(dataSource);
-        entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-        entityManagerFactoryBean.setPackagesToScan(new String[]{"com.kaheshan.dummy.model"});
-
-        Properties jpaProperties = new Properties();
-
-        //Configures the used database dialect. This allows Hibernate to create SQL
-        //that is optimized for the used database.
-        jpaProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
-
-        //Specifies the action that is invoked to the database when the Hibernate
-        //SessionFactory is created or closed.
-        jpaProperties.put("hibernate.hbm2ddl.auto",
-                env.getRequiredProperty("hibernate.hbm2ddl.auto")
-        );
-
-
-        //If the value of this property is true, Hibernate writes all SQL
-        //statements to the console.
-        jpaProperties.put("hibernate.show_sql",
-                env.getRequiredProperty("hibernate.show_sql")
-        );
-
-        //If the value of this property is true, Hibernate will format the SQL
-        //that is written to the console.
-        jpaProperties.put("hibernate.format_sql",
-                env.getRequiredProperty("hibernate.format_sql")
-        );
-
-        entityManagerFactoryBean.setJpaProperties(jpaProperties);
-
-        return entityManagerFactoryBean;
-    }
-
+//
+//
+//    LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource,
+//                                                                Environment env) {
+//        LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
+//        entityManagerFactoryBean.setDataSource(dataSource);
+//        entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+//        entityManagerFactoryBean.setPackagesToScan(new String[]{"com.kaheshan.dummy.model"});
+//
+//        Properties jpaProperties = new Properties();
+//
+//        //Configures the used database dialect. This allows Hibernate to create SQL
+//        //that is optimized for the used database.
+//        jpaProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+//
+//        //Specifies the action that is invoked to the database when the Hibernate
+//        //SessionFactory is created or closed.
+//        jpaProperties.put("hibernate.hbm2ddl.auto",
+//                env.getRequiredProperty("hibernate.hbm2ddl.auto")
+//        );
+//
+//
+//        //If the value of this property is true, Hibernate writes all SQL
+//        //statements to the console.
+//        jpaProperties.put("hibernate.show_sql",
+//                env.getRequiredProperty("hibernate.show_sql")
+//        );
+//
+//        //If the value of this property is true, Hibernate will format the SQL
+//        //that is written to the console.
+//        jpaProperties.put("hibernate.format_sql",
+//                env.getRequiredProperty("hibernate.format_sql")
+//        );
+//
+//        entityManagerFactoryBean.setJpaProperties(jpaProperties);
+//
+//        return entityManagerFactoryBean;
+//    }
+//
 
     @Bean
     @Primary
@@ -80,22 +80,6 @@ public class HibernateConfig {
 
     @Bean
     public DataSource dataSource() {
-
-
-//        HikariConfig config = new HikariConfig();
-//        HikariDataSource ds;
-//
-//        config.setJdbcUrl(environment.getRequiredProperty("jdbc.url"));
-//        config.setDriverClassName(environment.getRequiredProperty("jdbc.driverClassName"));
-//        config.setUsername(environment.getRequiredProperty("jdbc.username"));
-//        config.setPassword(environment.getRequiredProperty("jdbc.password"));
-//        config.addDataSourceProperty("cachePrepStmts", "true");
-//        config.addDataSourceProperty("prepStmtCacheSize", "250");
-//        config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
-//        config.addDataSourceProperty("maximumPoolSize", "20");
-//        ds = new HikariDataSource(config);
-//
-
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName(environment.getRequiredProperty("jdbc.driverClassName"));
         dataSource.setUrl(url);
@@ -119,9 +103,6 @@ public class HibernateConfig {
         properties.put("hibernate.format_sql", environment.getRequiredProperty("hibernate.format_sql"));
         properties.put("hibernate.hbm2ddl.auto", environment.getRequiredProperty("hibernate.hbm2ddl.auto"));
         properties.put("hibernate.use_sql_comments","true");
-        properties.put("hibernate.cache.use_second_level_cache","true");
-        properties.put("hibernate.cache.region.factory_class","org.hibernate.cache.ehcache.EhCacheRegionFactory");
-        properties.put("org.hibernate.envers.audit_table_suffix","_AUDIT_LOG");
 
         return properties;
     }

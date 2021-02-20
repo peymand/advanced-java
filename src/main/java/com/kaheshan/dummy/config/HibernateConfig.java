@@ -69,9 +69,10 @@ public class HibernateConfig {
 
     @Bean
     @Primary
-    public LocalSessionFactoryBean sessionFactory() {
+    @Autowired
+    public LocalSessionFactoryBean sessionFactory(DataSource dataSource) {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-        sessionFactory.setDataSource(dataSource());
+        sessionFactory.setDataSource(dataSource);
         sessionFactory.setPackagesToScan(new String[]{"com.kaheshan.dummy.model"});
         sessionFactory.setHibernateProperties(hibernateProperties());
 
@@ -92,12 +93,13 @@ public class HibernateConfig {
     public PlatformTransactionManager hibernateTransactionManager() {
         HibernateTransactionManager transactionManager
                 = new HibernateTransactionManager();
-        transactionManager.setSessionFactory(sessionFactory().getObject());
+        transactionManager.setSessionFactory(sessionFactory(dataSource()).getObject());
         return transactionManager;
     }
 
     private final Properties hibernateProperties() {
         Properties properties = new Properties();
+
         properties.put("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
         properties.put("hibernate.show_sql", environment.getRequiredProperty("hibernate.show_sql"));
         properties.put("hibernate.format_sql", environment.getRequiredProperty("hibernate.format_sql"));

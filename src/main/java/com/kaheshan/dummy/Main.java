@@ -13,11 +13,11 @@ public class Main {
         System.out.println(System.currentTimeMillis());
 
 
-        Book book  = context.getBean(Book.class);
-        Student student1 = context.getBean("student",Student.class);
-        Student student2 = context.getBean("student",Student.class);
-        boolean result = (student1 == student2);
-        System.out.println(result);
+//        Book book  = context.getBean(Book.class);
+//        Student student1 = context.getBean("student",Student.class);
+//        Student student2 = context.getBean("student",Student.class);
+//        boolean result = (student1 == student2);
+//        System.out.println(result);
 
     }
 }

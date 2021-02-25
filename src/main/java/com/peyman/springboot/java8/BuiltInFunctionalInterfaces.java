@@ -17,7 +17,9 @@ public class BuiltInFunctionalInterfaces {
         predicate.test("foo");              // true
         predicate.negate().test("foo");     // false
 
-        Predicate<Boolean> nonNull = Objects::nonNull;
+
+
+        Predicate<String> nonNull = Objects::nonNull;
         Predicate<Boolean> isNull = Objects::isNull;
 
         Predicate<String> isEmpty = String::isEmpty;

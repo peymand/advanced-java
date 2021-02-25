@@ -5,4 +5,7 @@ public interface Bar {
     Integer convert(String string);
     default String defaultBar() {return "";}
     default String defaultCommon() {return "";}
+    static int sum(int a,int b){
+        return a+b;
+    }
 }

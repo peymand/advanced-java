@@ -1,13 +1,14 @@
 package com.peyman.springboot.java8;
 
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.IntConsumer;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 public class Main {
 
     public static void main(String[] args) {
+
+        UnaryOperator<String> s = () ->
+
+
 
         Supplier x = () -> "";
         Function<String,Integer> f = (input) -> {return 12;};
@@ -30,5 +31,10 @@ public class Main {
         for (int i = 0; i <100 ; i++) {
             System.out.println(i);
         }
+    }
+
+    public static Bar getBar(){
+        return (s) -> Integer.parseInt(s);
+
     }
 }

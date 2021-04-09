@@ -11,6 +11,7 @@
 
 
     <properties>
+        <spring.version>5.2.8.RELEASE</spring.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
@@ -19,8 +20,9 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>5.2.8.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
+
     </dependencies>
 
     <build>

@@ -1,16 +1,26 @@
 package com.kaheshan.dummy;
 
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("student")
 public class Student {
 
+    @Value("10")
     private int age;
+    @Value("${name}")
     private String name;
     private String family;
+
+
+
+    @Qualifier("novelBook")
+    @Autowired
     private Book book;
 
-  public Student(){}
 
     public void doSomething(){
         System.out.println("in do something method...");
@@ -48,4 +58,5 @@ public class Student {
     public void setBook(Book book) {
         this.book = book;
     }
+
 }

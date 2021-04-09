@@ -1,22 +1,24 @@
 package com.kaheshan.dummy;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello Spring");
-        System.out.println("hello");
-        System.out.println(System.currentTimeMillis());
-        ClassPathXmlApplicationContext context =
-                new ClassPathXmlApplicationContext("applicationContext.xml");
-        System.out.println(System.currentTimeMillis());
 
+        //core container spring
+        //object management
+        //
 
-        Book book  = context.getBean("novelBook",Book.class);
-        Student student1 = context.getBean("student",Student.class);
-        Student student2 = context.getBean("student",Student.class);
-        boolean result = (student1 == student2);
-        System.out.println(result);
+        //IoC inversion of control
+        //DI dependency injection
+
+        ApplicationContext context =
+                new AnnotationConfigApplicationContext(SpringConfig.class);
+        Student student = (Student) context.getBean("student");
+        Student student2 = context.getBean(Student.class);
+        String str = context.getBean(String.class);
 
     }
 }

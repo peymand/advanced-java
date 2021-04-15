@@ -18,6 +18,7 @@ public class HelloWorldConfiguration implements WebMvcConfigurer{
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/index").setViewName("index");
+		registry.addViewController("/dummy").setViewName("dummy");
 	}
 
 

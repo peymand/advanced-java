@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 
@@ -10,7 +11,10 @@
 
 <body>
 
-	<form:form action="processForm" modelAttribute="student">
+<%--	${student}--%>
+
+    <c:url value="/student/processForm" var="pfurl"/>
+	<form:form action="${pfurl}" modelAttribute="student" method="post">
 	
 		First name: <form:input path="firstName" />
 		

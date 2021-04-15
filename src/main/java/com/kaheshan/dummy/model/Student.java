@@ -2,7 +2,9 @@ package com.kaheshan.dummy.model;
 
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 @Component
 public class Student {
@@ -15,9 +17,12 @@ public class Student {
 	private LinkedHashMap<String, String> countryOptions;
 	
 	private String favoriteLanguage;
+
+	private List<String> hobbies;
 	
 	public Student() {
-		
+
+		hobbies = new ArrayList<>();
 		// populate country options: used ISO country code
 		countryOptions = new LinkedHashMap<>();
 		
@@ -65,4 +70,11 @@ public class Student {
 		this.favoriteLanguage = favoriteLanguage;
 	}
 
+	public List<String> getHobbies() {
+		return hobbies;
+	}
+
+	public void setHobbies(List<String> hobbies) {
+		this.hobbies = hobbies;
+	}
 }

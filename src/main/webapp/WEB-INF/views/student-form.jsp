@@ -41,6 +41,14 @@
 
 		<br><br>
 
+		Hobbies:
+
+		Football : <form:checkbox path="hobbies" value="football"/>
+		Camping : <form:checkbox path="hobbies" value="camping"/>
+
+
+		<br><br>
+
 		<input type="submit" value="Submit" />
 	
 	</form:form>

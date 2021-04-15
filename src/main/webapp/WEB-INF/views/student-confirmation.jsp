@@ -20,6 +20,8 @@ Country: ${student.country}
 
 Favorite Language: ${student.favoriteLanguage}
 
+
+Hobbies: ${student.hobbies}
 </body>
 
 </html>

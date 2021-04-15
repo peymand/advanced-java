@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="mvc" uri="http://www.springframework.org/tags" %>
 
 <!DOCTYPE html>
 
@@ -9,6 +10,7 @@
 </head>
 
 <body>
+
 
 	<form:form action="processForm" modelAttribute="student">
 	
@@ -32,7 +34,7 @@
 
 		Favorite Language:
 		
-		Java <form:radiobutton path="favoriteLanguage" value="Java" />
+		Java <form:radiobutton  path="favoriteLanguage" value="Java" />
 		C# <form:radiobutton path="favoriteLanguage" value="C#" />
 		PHP <form:radiobutton path="favoriteLanguage" value="PHP" />
 		Ruby <form:radiobutton path="favoriteLanguage" value="Ruby" />

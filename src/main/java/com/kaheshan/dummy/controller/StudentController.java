@@ -4,11 +4,12 @@ import com.kaheshan.dummy.model.Student;
 import com.sun.deploy.net.HttpResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/student")
@@ -24,10 +25,17 @@ public class StudentController {
 		
 		return "student-form";
 	}
-	
-	@RequestMapping("/processForm")
-	public String processForm(@ModelAttribute("student") Student theStudent) {
-		
+
+	//http://localhost:8080/student/get?id=1
+	//http://localhost:8080/student/get/id/1
+
+	@PostMapping("/processForm")
+	public String processForm(@ModelAttribute("student") @Valid Student theStudent, BindingResult result, @RequestBody String body) {
+
+		if(result.hasErrors()){
+			return "student-form";
+		}
+
 		// log the input data
 		System.out.println("theStudent: " + theStudent.getFirstName()
 							+ " " + theStudent.getLastName());

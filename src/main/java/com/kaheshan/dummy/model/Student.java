@@ -2,6 +2,7 @@ package com.kaheshan.dummy.model;
 
 import org.springframework.stereotype.Component;
 
+import javax.validation.constraints.*;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -9,9 +10,14 @@ import java.util.List;
 @Component
 public class Student {
 
+	@Size(min = 3, message = "{firstname.size.validation.message}")
 	private String firstName;
+
+
+	private String stCode;
+
 	private String lastName;
-	
+
 	private String country;
 	
 	private LinkedHashMap<String, String> countryOptions;

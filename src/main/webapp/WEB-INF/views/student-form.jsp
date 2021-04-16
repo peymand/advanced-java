@@ -1,11 +1,15 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="mvc" uri="http://www.springframework.org/tags" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 
 <html>
 
 <head>
+	<meta charset="UTF-8"/>
+	<script src="<c:url value="/resources/js/main.js"/>" type="application/javascript"></script>
+	<link rel="stylesheet" href="/resources/css/main.css"/>
 	<title>Student Registration Form</title>
 </head>
 
@@ -15,6 +19,7 @@
 	<form:form action="processForm" modelAttribute="student">
 	
 		First name: <form:input path="firstName" />
+		<form:errors cssClass="error" path="firstName"/>
 		
 		<br><br>
 	

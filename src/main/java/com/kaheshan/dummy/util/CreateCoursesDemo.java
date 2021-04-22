@@ -1,7 +1,7 @@
 package com.kaheshan.dummy.util;
 
 
-import com.kaheshan.dummy.model.*;
+import com.kaheshan.dummy.entities.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -31,7 +31,7 @@ public class CreateCoursesDemo {
             // get the instructor from db
             int theId = 1;
             Instructor tempInstructor =
-                    new Instructor("Susan", "Public", "susan.public@luv2code.com");
+                    new Instructor("ali", "ahmadi", "susan.public@luv2code.com");
 
             // create some courses
             Course tempCourse1 = new Course("Air Guitar - The Ultimate Guide");

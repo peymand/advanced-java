@@ -1,7 +1,7 @@
 package com.kaheshan.dummy.util;
 
 
-import com.kaheshan.dummy.model.*;
+import com.kaheshan.dummy.entities.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -33,6 +33,7 @@ public class GetInstructorDetailDemo {
             InstructorDetail tempInstructorDetail =
                     session.get(InstructorDetail.class, theId);
 
+            tempInstructorDetail.setHobby("football");
             // print the instructor detail
             System.out.println("tempInstructorDetail: " + tempInstructorDetail);
 

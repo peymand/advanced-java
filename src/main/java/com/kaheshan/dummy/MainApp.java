@@ -2,32 +2,35 @@ package com.kaheshan.dummy;
 
 
 import com.kaheshan.dummy.config.HibernateConfig;
-import com.kaheshan.dummy.model.Person;
+import com.kaheshan.dummy.entities.Instructor;
+import com.kaheshan.dummy.entities.Person;
 import com.kaheshan.dummy.service.PersonService;
-import net.sf.ehcache.CacheManager;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.sql.SQLException;
-import java.util.List;
 
 /**
  * @author imssbora
  *
  */
 public class MainApp {
+
+
    public static void main(String[] args) throws SQLException {
       AnnotationConfigApplicationContext context =
             new AnnotationConfigApplicationContext(HibernateConfig.class);
 
 
+      SessionFactory factory = (SessionFactory) context.getBean("sessionFactory");
+      Session session = factory.getCurrentSession();
+      session.beginTransaction();
+      Instructor instructor = session.get(Instructor.class, 1);
 
-
-
-
-
+      System.out.println(instructor);
+      session.getTransaction().commit();
+      session.close();
       PersonService personService = context.getBean(PersonService.class);
       Person p1 = personService.getPerson(1L);
       personService.delete(p1);

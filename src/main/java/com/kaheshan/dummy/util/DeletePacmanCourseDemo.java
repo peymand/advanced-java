@@ -1,6 +1,6 @@
 package com.kaheshan.dummy.util;
 
-import com.kaheshan.dummy.model.*;
+import com.kaheshan.dummy.entities.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

@@ -1,4 +1,4 @@
-package com.kaheshan.dummy.model;
+package com.kaheshan.dummy.entities;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -13,18 +13,7 @@ import javax.persistence.Table;
 @Table(name="instructor_detail")
 public class InstructorDetail {
 
-	// annotate the class as an entity and map to db table
-	
-	// define the fields
-	
-	// annotate the fields with db column names
-	
-	// create constructors
-	
-	// generate getter/setter methods
-	
-	// generate toString() method
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
@@ -40,7 +29,7 @@ public class InstructorDetail {
 	
 	// add @OneToOne annotation
 	
-	@OneToOne(mappedBy="instructorDetail", 
+	@OneToOne(mappedBy="instructorDetail",
 			cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
 						CascadeType.REFRESH})
 	private Instructor instructor;

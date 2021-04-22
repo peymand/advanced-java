@@ -67,7 +67,7 @@ public class HibernateConfig {
 //    }
 //
 
-    @Bean
+    @Bean("sessionFactory")
     @Primary
     @Autowired
     public LocalSessionFactoryBean sessionFactory(DataSource dataSource) {

@@ -1,4 +1,4 @@
-package com.kaheshan.dummy.model;
+package com.kaheshan.dummy.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

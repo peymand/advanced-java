@@ -1,7 +1,7 @@
 package com.kaheshan.dummy.util;
 
-import com.kaheshan.dummy.model.Instructor;
-import com.kaheshan.dummy.model.InstructorDetail;
+import com.kaheshan.dummy.entities.Instructor;
+import com.kaheshan.dummy.entities.InstructorDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -42,7 +42,7 @@ public class CreateDemo {
 							"Guitar");		
 			
 			// associate the objects
-			tempInstructor.setInstructorDetail(tempInstructorDetail);
+//			tempInstructor.setInstructorDetail(tempInstructorDetail);
 			
 			// start a transaction
 			session.beginTransaction();

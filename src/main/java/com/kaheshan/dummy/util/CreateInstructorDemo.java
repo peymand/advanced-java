@@ -1,7 +1,7 @@
 package com.kaheshan.dummy.util;
 
 
-import com.kaheshan.dummy.model.*;
+import com.kaheshan.dummy.entities.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -30,11 +30,11 @@ public class CreateInstructorDemo {
 			InstructorDetail tempInstructorDetail =
 					new InstructorDetail(
 							"http://www.youtube.com",
-							"Video Games");		
-			
-			// associate the objects
+							"Video Games");
+
+//			// associate the objects
 			tempInstructor.setInstructorDetail(tempInstructorDetail);
-			
+//
 			// start a transaction
 			session.beginTransaction();
 			

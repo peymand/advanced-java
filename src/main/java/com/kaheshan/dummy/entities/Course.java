@@ -1,4 +1,4 @@
-package com.kaheshan.dummy.model;
+package com.kaheshan.dummy.entities;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -13,20 +13,21 @@
         <property name="connection.password">123456</property>
 
         <!-- JDBC connection pool settings ... using built-in test pool -->
-        <property name="connection.pool_size">1</property>
+<!--        <property name="connection.pool_size">1</property>-->
 
         <!-- Select our SQL dialect -->
-        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="dialect">org.hibernate.dialect.MySQL55Dialect</property>
 
         <!-- Echo the SQL to stdout -->
         <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
 
 		<!-- Set the current session context -->
 		<property name="current_session_context_class">thread</property>
 
-        <property name="hibernate.cache.use_second_level_cache">true</property>
-        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+<!--        <property name="hibernate.cache.use_second_level_cache">true</property>-->
+<!--        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>-->
 
  
     </session-factory>

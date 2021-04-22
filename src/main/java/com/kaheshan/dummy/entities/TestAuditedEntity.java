@@ -1,4 +1,4 @@
-package com.kaheshan.dummy.model;
+package com.kaheshan.dummy.entities;
 /*
     Author: Peyman Dodangeh,
     Date : 10/4/2020,

@@ -1,4 +1,4 @@
-package com.kaheshan.dummy.model;
+package com.kaheshan.dummy.entities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,14 +37,12 @@ public class Instructor {
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="instructor_detail_id")
 	private InstructorDetail instructorDetail;
-	
+
 	@OneToMany(fetch=FetchType.LAZY,
 			   mappedBy="instructor",
-			   cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-						 CascadeType.DETACH, CascadeType.REFRESH})
+			   cascade= CascadeType.ALL)
 	private List<Course> courses;
-	
-	
+
 	public Instructor() {
 		
 	}
@@ -108,17 +106,17 @@ public class Instructor {
 	public void setCourses(List<Course> courses) {
 		this.courses = courses;
 	}
-	
+
 	// add convenience methods for bi-directional relationship
-	
+
 	public void add(Course tempCourse) {
-		
+
 		if (courses == null) {
 			courses = new ArrayList<>();
 		}
-		
+
 		courses.add(tempCourse);
-		
+
 		tempCourse.setInstructor(this);
 	}
 	

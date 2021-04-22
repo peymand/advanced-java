@@ -1,6 +1,6 @@
 package com.kaheshan.dummy.util;
 
-import com.kaheshan.dummy.model.*;
+import com.kaheshan.dummy.entities.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -37,6 +37,7 @@ public class DeleteMaryStudentDemo {
 			// delete student
 			System.out.println("\nDeleting student: " + tempStudent);
 			session.delete(tempStudent);
+
 			
 			// commit transaction
 			session.getTransaction().commit();

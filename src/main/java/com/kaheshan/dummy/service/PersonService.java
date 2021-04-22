@@ -1,7 +1,7 @@
 package com.kaheshan.dummy.service;
 
 
-import com.kaheshan.dummy.model.Person;
+import com.kaheshan.dummy.entities.Person;
 
 import java.util.List;
 

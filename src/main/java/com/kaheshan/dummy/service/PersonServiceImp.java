@@ -1,9 +1,8 @@
 package com.kaheshan.dummy.service;
 
 import com.kaheshan.dummy.dao.PersonDao;
-import com.kaheshan.dummy.model.Person;
+import com.kaheshan.dummy.entities.Person;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

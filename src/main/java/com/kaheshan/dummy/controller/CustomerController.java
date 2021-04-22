@@ -2,6 +2,7 @@ package com.kaheshan.dummy.controller;
 
 import com.kaheshan.dummy.model.Customer;
 import com.kaheshan.dummy.service.CustomerService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,20 +13,18 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/customer")
+@AllArgsConstructor
 public class CustomerController {
 
 	// need to inject our customer service
-	@Autowired
+
 	private CustomerService customerService;
-	
+
 	@GetMapping("/list")
 	public String listCustomers(Model theModel) {
 		
 		// get customers from the service
 		List<Customer> theCustomers = customerService.getCustomers();
-
-
-
 		// add the customers to the model
 		theModel.addAttribute("customers", theCustomers);
 		
@@ -33,8 +32,10 @@ public class CustomerController {
 	}
 	
 	@GetMapping("/showFormForAdd")
-	public String showFormForAdd(@RequestBody(required = false) String s,  Model theModel) {
-		
+	public String showFormForAdd(@RequestBody(required = false) String s ,  Model theModel) {
+
+		System.out.println(s);
+
 		// create model attribute to bind form data
 		Customer theCustomer = new Customer();
 		

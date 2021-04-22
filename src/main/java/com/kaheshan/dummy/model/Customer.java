@@ -29,6 +29,10 @@ public class Customer {
 	
 	@Column(name="email")
 	private String email;
+
+	@Column(name="country")
+	private String country;
+
 	@Getter
 	@Setter
 	private String type;
@@ -73,7 +77,14 @@ public class Customer {
 	public String toString() {
 		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
 	}
-		
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
 }
 
 

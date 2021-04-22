@@ -50,6 +50,12 @@
 					</tr>
 
 					<tr>
+						<td><label>Country:</label></td>
+						<td><form:input path="country" /></td>
+					</tr>
+
+
+					<tr>
 						<td><label>Type:</label></td>
 						<td><form:select path="type">
 

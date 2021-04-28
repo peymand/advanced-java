@@ -27,12 +27,19 @@ public class CustomerRestController {
 
     //ResponseEntity
     //Exception Handling
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE,produces = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     public String saveCustomer(@RequestBody Customer customer){
 
         customerService.saveCustomer(customer);
         return "Saved!!!";
+    }
+
+    @DeleteMapping(value = "/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public String deleteCustomer(@PathVariable int id) {
+        customerService.deleteCustomer(id);
+        return "Done";
     }
 
 

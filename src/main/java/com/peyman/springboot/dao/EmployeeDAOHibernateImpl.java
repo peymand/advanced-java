@@ -24,7 +24,9 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 
 		// get the current hibernate session
 		Session currentSession = entityManager.unwrap(Session.class);
-		
+
+
+
 		// create a query
 		Query<Employee> theQuery =
 				currentSession.createQuery("from Employee", Employee.class);

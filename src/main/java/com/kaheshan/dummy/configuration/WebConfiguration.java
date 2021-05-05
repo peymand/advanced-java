@@ -69,10 +69,10 @@ public class WebConfiguration implements WebMvcConfigurer{
 	public Docket api() {
 		return new Docket(DocumentationType.SWAGGER_2)
 				.select()
-//				.apis(RequestHandlerSelectors.any())
-				.apis(RequestHandlerSelectors.basePackage("com.kaheshan.dummy.rest"))
-				.paths(PathSelectors.ant("/rest/**"))
-//				.paths(PathSelectors.any())
+				.apis(RequestHandlerSelectors.any())
+//				.apis(RequestHandlerSelectors.basePackage("com.kaheshan.dummy.rest"))
+//				.paths(PathSelectors.ant("/rest/**"))
+				.paths(PathSelectors.any())
 				.build()
 				.apiInfo(apiInfo());
 	}

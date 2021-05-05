@@ -26,8 +26,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .authorizeRequests()
                 .antMatchers("/").hasRole("EMPLOYEE")
-                .antMatchers("/customer/**").hasRole("MANAGER")
+//                .antMatchers("/customer/**").hasRole("MANAGER")
                 .antMatchers("/rest/**").hasRole("ADMIN")
+                .antMatchers("/swagger-ui.html").anonymous()
                 .and()
                 .formLogin()
                 .loginPage("/showMyLoginPage")
@@ -43,12 +44,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth)
             throws Exception {
-        auth.jdbcAuthentication().dataSource(securityDataSource);
+//        auth.jdbcAuthentication().dataSource(securityDataSource);
+        auth.inMemoryAuthentication().withUser("admin").password("$2a$10$ALp2kCsuCCIXBonp9W.RuO9o534uR5WnSYrj1mZVk53ZJ096PHkmu").roles("ADMIN","MANAGER","EMPLOYEE");
     }
 
 
-//    @Bean
-//    public PasswordEncoder passwordEncoder() {
-//        return new BCryptPasswordEncoder();
-//    }
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
 }

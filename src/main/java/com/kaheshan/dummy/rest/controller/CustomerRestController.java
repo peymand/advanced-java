@@ -46,9 +46,8 @@ public class CustomerRestController {
 //        return RestPreconditions.checkFound(service.getCustomer(id.intValue()));
 //    }
 
-    @PostMapping(consumes = "application/json", produces = "application/json")
-    @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Message> create(@Valid @RequestBody  CustomerDTO resource, BindingResult result) {
+    @PostMapping(value = "/insert", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<Message> create(@RequestBody  CustomerDTO resource, BindingResult result) {
         if(result.hasErrors()){
             return new ResponseEntity<>(new Message("input validation Faild"),HttpStatus.BAD_REQUEST);
         }

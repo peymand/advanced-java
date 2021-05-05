@@ -14,10 +14,11 @@ import java.util.List;
 public class EmployeeServiceImpl implements EmployeeService {
 
 	private EmployeeRepository repository;
-	
-	@Autowired
+
+
 	public EmployeeServiceImpl(EmployeeRepository repository) {
 		this.repository = repository;
+
 	}
 	
 	@Override
@@ -28,6 +29,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public List<Employee> findAll(Pageable pageable) {
+		Employee employee =  repository.findEmployeeByFirstNameIsAndEmailLike("ali","a");
 		return repository.findAll(pageable).toList();
 	}
 
@@ -40,6 +42,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	@Transactional
 	public void save(Employee theEmployee) {
+
 		repository.save(theEmployee);
 	}
 

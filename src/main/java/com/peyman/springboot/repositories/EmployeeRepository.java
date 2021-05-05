@@ -15,15 +15,25 @@ import java.util.List;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
-    List<Employee>  findEmployeesByEmail(String email, Pageable pageable);
+    Employee findEmployeeByFirstNameIsAndEmailLike(String name, String email);
 
-
-//	// that's it ... no need to write any code LOL!
-//    Page<Employee> findByFirstNameAndEmail(String name, String email, Pageable pageable);
-//
     @Query("SELECT e FROM Employee e WHERE LOWER(e.firstName) = LOWER(:name)")
     Employee retrieveByName(@Param("name") String name);
 
 
 
 }
+
+
+
+
+
+
+//    List<Employee>  findEmployeesByEmail(String email, Pageable pageable);
+//
+//
+////	// that's it ... no need to write any code LOL!
+////    Page<Employee> findByFirstNameAndEmail(String name, String email, Pageable pageable);
+////
+//    @Query("SELECT e FROM Employee e WHERE LOWER(e.firstName) = LOWER(:name)")
+//    Employee retrieveByName(@Param("name") String name);

@@ -20,14 +20,14 @@ public class CustomerDTO {
 
     private int id;
 
-    @NotNull
-    @NotEmpty(message = "Name is mandatory")
+//    @NotNull
+//    @NotEmpty(message = "Name is mandatory")
     private String firstName;
 
 
     private String lastName;
 
-    @NotEmpty(message = "Email is mandatory")
-    @Email(message = "email should be a valid email")
+//    @NotEmpty(message = "Email is mandatory")
+//    @Email(message = "email should be a valid email")
     private String email;
 }

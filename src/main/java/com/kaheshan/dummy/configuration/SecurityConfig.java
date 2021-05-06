@@ -26,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .authorizeRequests()
                 .antMatchers("/").hasRole("EMPLOYEE")
-//                .antMatchers("/customer/**").hasRole("MANAGER")
+                .antMatchers("/customer/**").hasRole("MANAGER")
                 .antMatchers("/rest/**").hasRole("ADMIN")
                 .antMatchers("/swagger-ui.html").anonymous()
                 .and()

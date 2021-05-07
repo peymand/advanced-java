@@ -1,5 +1,9 @@
 FROM openjdk:8-jre-alpine3.9
 
+
+MAINTAINER Peyman Dodangeh
+
+
 # copy the packaged jar file into our docker image
 COPY target/spring-boot-0.0.1-SNAPSHOT.jar /demo.jar
 
